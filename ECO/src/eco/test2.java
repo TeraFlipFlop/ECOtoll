@@ -16,7 +16,7 @@ public class test2 {
 		System.out.println(b.getId());
 		for(Casello r:b.getCaselli()){System.out.println(r.getNome());}
 		System.out.println(b.getTipoAutostrada(b.getTipoAutostrada()));
-
+		
 
 		
 		
