@@ -4,15 +4,15 @@ package eco;
 public class Casello {
 private int km;
 private String nome;
-private int id;
+private String idAuto;
 
 
 
-public Casello(int km, String nome, int id) {
+public Casello(int km, String nome, String id) {
 
 	this.km = km;
 	this.nome = nome;
-	this.id = id;
+	this.idAuto = id;
 }
 
 
@@ -28,11 +28,11 @@ public String getNome() {
 public void setNome(String nome) {
 	this.nome = nome;
 }
-public int getId() {
-	return id;
+public String getId() {
+	return idAuto;
 }
-public void setId(int id) {
-	this.id = id;
+public void setId(String id) {
+	this.idAuto = id;
 }
 
 }
