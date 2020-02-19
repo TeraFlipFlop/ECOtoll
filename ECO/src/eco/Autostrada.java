@@ -2,7 +2,6 @@ package eco;
 import java.util.*;
 import interfaces.AutostradaInter;
 
-
 enum  Tipologia {pianura, montagna};
 public class Autostrada implements AutostradaInter {
 	private ArrayList<Casello> caselli;
@@ -19,7 +18,20 @@ public class Autostrada implements AutostradaInter {
 		this.tipoAutostrada = tipologia;
 	}
 
+	public Autostrada(ArrayList<Casello> caselli, String id, double[] tariffa, String tipologia) {
+		
+		this.caselli = caselli;
+		this.id = id;
+		this.setTariffe(tariffa);
+		if(tipologia.equals("montagna"))
+		this.tipoAutostrada = Tipologia.montagna;
+		if(tipologia.equals("pianura"))
+			this.tipoAutostrada = Tipologia.pianura;
+		
+	}
 
+	
+	
 	public ArrayList<Casello> getCaselli() {
 		return caselli;
 	}
@@ -45,11 +57,28 @@ public class Autostrada implements AutostradaInter {
 		return tipoAutostrada;
 	}
 
+	public String getTipoAutostrada(Tipologia t) {
+		String tipoAutostrada="";
+		if(this.tipoAutostrada.equals(Tipologia.montagna))
+			tipoAutostrada = "montagna";
+			if(this.tipoAutostrada.equals(Tipologia.pianura))
+				tipoAutostrada = "pianura";
+			
+		
+		return tipoAutostrada;
+	}
+
 
 	public void setTipoAutostrada(Tipologia tipoAutostrada) {
 		this.tipoAutostrada = tipoAutostrada;
 	}
 
+	public void setTipoAutostrada(String tipoAutostrada) {
+		Autostrada a =new Autostrada(null,null,null,tipoAutostrada);
+		
+		this.tipoAutostrada = a.tipoAutostrada;
+	}
+	
 
 	@Override
 	public void addCasello(Casello a ) {
