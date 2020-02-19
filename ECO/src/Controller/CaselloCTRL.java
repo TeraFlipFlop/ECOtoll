@@ -7,10 +7,10 @@ import eco.Autostrada;
 import eco.Casello;
 
 public class CaselloCTRL {
-public ArrayList<Casello> buildCasello(Autostrada a){
+public ArrayList<Casello> getCaselli(Autostrada a){
 	return new CaselloDAO().getCaselli(a);
 	}
-public Casello buildCasello(String cod) {
-	return new CaselloDAO().CreateCasello(cod);
+public Casello getCaselli(String cod) {
+	return new CaselloDAO().getCasello(cod);
 }
 }

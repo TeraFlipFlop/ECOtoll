@@ -11,7 +11,7 @@ import eco.Autostrada;
 
 
 public class CaselloDAO {
-public Casello CreateCasello(String codice) {
+public Casello getCasello(String codice) {
 
 	String nome = null;
 	String idAuto = null;
@@ -32,26 +32,16 @@ st=con.prepareStatement(sql);
 	 res = st.getResultSet();
 	
 		while(res.next()) {
-			
 			 km=res.getInt("km");
 			 idAuto=res.getString("codice");
 			 nome= res.getString("nome");
-
-
-	}
-	
-
-	} catch (SQLException e1) {
+}
+		} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
-	
 	Casello c = new Casello (km, nome,idAuto);
-	
 	return c; 
-	
-	
-	
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,9 +57,6 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 	String sql =null;
 	
 	sql="select * from casello where Autostrada='"+a.getId()+"'";
-	
-	
-	
 	ArrayList<Casello> alist=new ArrayList<Casello>();
 	
 	
@@ -90,13 +77,9 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 				Casello c =new Casello (km,cod,autostrada);
 				System.out.println("casello added");
 			alist.add(c);
-				
-				
-			};
-			
-		
+				};
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+			
 				e1.printStackTrace();
 			}
 	return alist;}

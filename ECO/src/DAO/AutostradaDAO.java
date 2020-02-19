@@ -55,13 +55,13 @@ public class AutostradaDAO {
 		
 		 if (tipologia.equals("pianura")) {
 		 b.setTariffe(new tariffeCTRL().createTariffe().getTariffaP());
-		 b.setCaselli(new CaselloCTRL().buildCasello(b));
+		 b.setCaselli(new CaselloCTRL().getCaselli(b));
 		 
 		 }
 		
 		 if (tipologia.equals("montagna")) {
 		 b.setTariffe(new tariffeCTRL().createTariffe().getTariffaM());
-		 b.setCaselli(new CaselloCTRL().buildCasello(b));
+		 b.setCaselli(new CaselloCTRL().getCaselli(b));
 		 }
 		
 		
