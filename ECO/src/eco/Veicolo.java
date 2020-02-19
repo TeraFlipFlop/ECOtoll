@@ -9,7 +9,7 @@ public double altezza;
 ClasseAmbienale classeAmbientale;
 
 
-
+//costruttore per classe ambientale e classe by numero assi e QtaCO2
 
 
 public Veicolo(String targa, String modello, String marca, int anno, int peso, int co2, int assi, ClasseAmbienale classeAmbientale2,

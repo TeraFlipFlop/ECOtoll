@@ -43,37 +43,40 @@ public void setAutostrada(Autostrada autostrada) {
 	@Override
 	public double arrotondamento(double a ) {
 		
-		return a;
+		return Math.round(a);
 	}
 
 	@Override
 	public double tariffaFinale(ClasseA a) {
 		
-		return arrotondamento(this.tarParziale(0)+(this.tarParziale(0)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
 	}
 
 	@Override
 	public double tariffaFinale(ClasseB a) {
 		
-		return arrotondamento(this.tarParziale(1)+(this.tarParziale(1)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
 	}
 
 	@Override
 	public double tariffaFinale(Classe3 a) {
-		return arrotondamento(this.tarParziale(2)+(this.tarParziale(2)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
 	}
 
 	@Override
 	public double tariffaFinale(Classe4 a) {
-		return arrotondamento(this.tarParziale(3)+(this.tarParziale(3)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
 	}
 
 	@Override
 	public double tariffaFinale(Classe5 a) {
-		return arrotondamento(this.tarParziale(4)+(this.tarParziale(4)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
 	}
 
-	public double tarParziale(int i){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[i]); }
-	
+	public double tarParziale(ClasseA a){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[1]); }
+	public double tarParziale(ClasseB a){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[2]); }
+	public double tarParziale(Classe3 a){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[3]); }
+	public double tarParziale(Classe4 a){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[4]); }
+	public double tarParziale(Classe5 a){return this.percorso.KmPercorsi() *(this.autostrada.getTariffe()[5]); }
 
 }
