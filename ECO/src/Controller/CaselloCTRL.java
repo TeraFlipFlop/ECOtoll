@@ -3,8 +3,8 @@ package Controller;
 import java.util.ArrayList;
 
 import DAO.CaselloDAO;
-import eco.Autostrada;
-import eco.Casello;
+import model.Autostrada;
+import model.Casello;
 
 public class CaselloCTRL {
 public ArrayList<Casello> getCaselli(Autostrada a){
@@ -13,4 +13,11 @@ public ArrayList<Casello> getCaselli(Autostrada a){
 public Casello getCaselli(String cod) {
 	return new CaselloDAO().getCasello(cod);
 }
+
+
+public void modCasello(Casello casello) {
+new CaselloDAO().update(casello);}
+
+
+
 }

@@ -1,6 +1,6 @@
 package interfaces;
 
-import eco.Casello;
+import model.Casello;
 
 public interface AutostradaInter {
 	public void addCasello(Casello a);

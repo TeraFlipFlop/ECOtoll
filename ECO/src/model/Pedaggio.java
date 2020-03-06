@@ -1,4 +1,4 @@
-package eco;
+package model;
 
 import interfaces.PedaggioInter;
 
@@ -45,11 +45,22 @@ public void setAutostrada(Autostrada autostrada) {
 		
 		return Math.round(a);
 	}
+	
+public double tariffaFinale(Veicolo g) {
+		
+	if(g.getClass().equals(new ClasseB().getClass() )) {return tariffaFinale((ClasseB)g);}
+	if(g.getClass().equals(new ClasseA().getClass() )) {return tariffaFinale((ClasseA)g);}
+	if(g.getClass().equals(new Classe3().getClass() )) {return tariffaFinale((Classe3)g);}
+	if(g.getClass().equals(new Classe4().getClass() )) {return tariffaFinale((Classe4)g);}
+	if(g.getClass().equals(new Classe5().getClass() )) {return tariffaFinale((Classe5)g);}
+	return 0;
+	}
+	
 
 	@Override
-	public double tariffaFinale(ClasseA a) {
+	public double tariffaFinale(ClasseA g) {
 		
-		return arrotondamento(this.tarParziale(a)+(this.tarParziale(a)*this.iva/100 ));
+		return arrotondamento(this.tarParziale(g)+(this.tarParziale(g)*this.iva/100 ));
 	}
 
 	@Override

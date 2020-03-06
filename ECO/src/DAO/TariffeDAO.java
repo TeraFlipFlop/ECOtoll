@@ -5,18 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import eco.Database;
-import eco.Tariffe;
+import model.Database;
+import model.Tariffe;
 
 public class TariffeDAO {
-	
-	
-	public Tariffe buildTariffe() {
+		public Tariffe buildTariffe() {
 		Tariffe t =new Tariffe(null,null,null);
 		String montagna="montagna";
 		String pianura ="pianura";
 		String [] cat= {"a","b","3","4","5"};
 		double []d = {0,0,0,0,0,0};
+		double []p = {0,0,0,0,0};
+		double []m = {0,0,0,0,0};
 		int i = 0;
 		
 		
@@ -32,17 +32,13 @@ public class TariffeDAO {
 			
 			if(result.next()) {
 				
-					d[i]=result.getDouble("Valore");
+					m[i]=result.getDouble("Valore");
 				}
 				
 			}
-			t.setTariffaM(d);
+			t.setTariffaM(m);
 
-			
-			
-		
-
-		} catch (SQLException e) {
+			} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
@@ -59,11 +55,11 @@ public class TariffeDAO {
 			
 			if(result.next()) {
 				
-					d[i]=result.getDouble("Valore");
+					p[i]=result.getDouble("Valore");
 				}
 				
 			}
-			t.setTariffaP(d);
+			t.setTariffaP(p);
 
 			
 			
@@ -111,4 +107,11 @@ public class TariffeDAO {
 		
 	
 
-} }
+}
+
+		public void update(Tariffe t) {
+			
+			
+		}
+
+	 }

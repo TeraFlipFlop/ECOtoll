@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import eco.Casello;
-import eco.Database;
-import eco.Autostrada;
+import model.Autostrada;
+import model.Casello;
+import model.Database;
 
 
 public class CaselloDAO {
@@ -83,6 +83,13 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 				e1.printStackTrace();
 			}
 	return alist;}
+
+public void update(Casello casello) {
+	// TODO Auto-generated method stub
+	
+}
+
+
 
 
 

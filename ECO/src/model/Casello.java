@@ -1,4 +1,4 @@
-package eco;
+package model;
 
 
 public class Casello {

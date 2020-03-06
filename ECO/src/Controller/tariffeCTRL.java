@@ -1,7 +1,7 @@
 package Controller;
 
 import DAO.TariffeDAO;
-import eco.Tariffe;
+import model.Tariffe;
 
 public class tariffeCTRL {
 
@@ -10,7 +10,10 @@ public class tariffeCTRL {
 		
 		return new TariffeDAO().buildTariffe();
 	};
-	
+	public void modtariffe(Tariffe t) {
+		new TariffeDAO().update(t);
+	}
+
 	
 
 }

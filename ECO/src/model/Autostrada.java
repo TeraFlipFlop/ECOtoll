@@ -1,4 +1,4 @@
-package eco;
+package model;
 import java.util.*;
 import interfaces.AutostradaInter;
 
@@ -26,7 +26,7 @@ public class Autostrada implements AutostradaInter {
 		if(tipologia.equals("montagna"))
 		this.tipoAutostrada = Tipologia.montagna;
 		if(tipologia.equals("pianura"))
-			this.tipoAutostrada = Tipologia.pianura;
+		this.tipoAutostrada = Tipologia.pianura;
 		
 	}
 

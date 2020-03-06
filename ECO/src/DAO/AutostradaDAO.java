@@ -4,29 +4,25 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
 import Controller.tariffeCTRL;
-import eco.Autostrada;
-import eco.Casello;
-import eco.Database;
+import model.Autostrada;
+import model.Casello;
+import model.Database;
 
 
 
 public class AutostradaDAO {
 	
-	public Autostrada createAutostrada(String id) {
+	public Autostrada getAutostrada(String id) {
 		
 		String cod = "";
 		String tipologia= "";
-		
-		
-		
 		java.sql.PreparedStatement st = null;
 		Connection con = new Database().Connect();
-		
-		
-
 		String sql = "select * from autostrada where Codice ='"+id+"' " ;
 		
 		try {
@@ -47,7 +43,7 @@ public class AutostradaDAO {
 		
 
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
 		
@@ -67,7 +63,54 @@ public class AutostradaDAO {
 		
 		 return b;
 	}
+
+	public ArrayList<String> getCod() {
+		
+		String cod = "";
+		ArrayList<String> a =new ArrayList<String>();
+		
+		
+		
+		java.sql.PreparedStatement st = null;
+		Connection con = new Database().Connect();
+		
+		
+
+		String sql = "select codice from autostrada  " ;
+		
+		try {
+			st = con.prepareStatement(sql);
+			
+		ResultSet res	=null;
+
+		 st.execute();
+		 res = st.getResultSet();
+		
+			while(res.next()) {
+				
+				 cod=res.getString("codice");
+				
+				a.add(cod);
+
+		}
+		
+
+		} catch (SQLException e1) {
+		
+			e1.printStackTrace();
+		}
+		
+		return a;
+	}
 	
+	
+	public ArrayList<Autostrada> getAutostrada() {
+		 ArrayList<Autostrada> a=new ArrayList<Autostrada>();
+		 ArrayList<String>c = new AutostradaDAO().getCod();
+		 for(String s:c) {
+			 a.add(new AutostradaDAO().getAutostrada(s));
+			 }
+		 return a;
+	}}
 	
 
-}

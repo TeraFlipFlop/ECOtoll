@@ -9,7 +9,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-import eco.Database;
+import model.Database;
 
 public class GestoreUtenzaDAO {
 

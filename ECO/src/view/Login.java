@@ -113,9 +113,9 @@ public class Login extends JFrame {
 					String tipo = new LoginController().login(username, password);
 					if(tipo.equals("amministratore")) {
 						dispose();
-						//FinestraPrincipale f = new FinestraPrincipale(username); 
+						FinestraPrincipale f = new FinestraPrincipale(username); 
 					JOptionPane.showMessageDialog(null, "Credenziali corrette"); 
-						//f.setVisible(true);
+						f.setVisible(true);
 						} else JOptionPane.showMessageDialog(null, "Credenziali Errate"); 
 				} else {
 					JOptionPane.showMessageDialog(null, "uno dei due campi è vuoto");
