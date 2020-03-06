@@ -38,7 +38,7 @@ import javax.swing.DropMode;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
-public class CalcoloTariffa extends JFrame {
+public class CalcoloTariffa extends JFrame {//da rifare
 	public String id =null;
 	private JTextField textField;
 	private JTextField textField_1;
