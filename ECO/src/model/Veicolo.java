@@ -1,8 +1,10 @@
 package model;
 
+import interfaces.Veicolointer;
 
 enum ClasseAmbienale{Euro1,Euro2,Euro3,Euro4,Euro5,Euro6}
-public abstract class  Veicolo {
+public abstract class  Veicolo implements Veicolointer{
+
 public String targa,modello,marca;
 public int anno, peso, assi;
 double co2;

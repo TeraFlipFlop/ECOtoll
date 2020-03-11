@@ -252,18 +252,42 @@ getContentPane().add(btnRefresh);
 				
 				
 				
+				ArrayList <String> codlist = new ArrayList <String>() ;
+				
+				codlist =  new AutostradaCTRL().getCodAutostrada();
+				String [] codicevar = new String[codlist.size()];
+				JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
+				JComboBox codiceComboBox = jComboBox;
+				
+			
+								//DIMENSIONI COMBO BOX
+				
+				codiceComboBox.setBounds(157, 62, 103, 22);
+				getContentPane().add(codiceComboBox);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				/*
 				ArrayList <String> codlist1 = new ArrayList <String>() ;
 				
 				codlist1 =  new AutostradaCTRL().getCodAutostrada();
 				String [] codicevar1 = new String[codlist1.size()];
-				JComboBox<String> comboBox = new JComboBox<String>(codlist1.toArray(codicevar1));
+				codicevar1=(String[]) codlist1.toArray();
+				JComboBox<String> comboBox = new JComboBox<String>();//codlist1.toArray(codicevar1));
+				for(String s:codicevar1) {comboBox.addItem(s);}
 				
 				
 				comboBox.setBounds(157, 62, 103, 22);
 				getContentPane().add(comboBox);
-				
-				String	codiceSelected = comboBox.getSelectedItem().toString();
-				textField.setText(codiceSelected);
+				*/
+				//String	codiceSelected = comboBox.getSelectedItem().toString();
+				//textField.setText(codiceSelected);
 
 				JComboBox<String> comboBox_1 =new JComboBox<String>();
 				comboBox_1.setBounds(157, 101, 103, 22);
@@ -274,10 +298,10 @@ getContentPane().add(btnRefresh);
 				
 				
 				
-				comboBox.addActionListener(new ActionListener() {
+				codiceComboBox.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					
-					String	codiceSelected = comboBox.getSelectedItem().toString();
+					String	codiceSelected = codiceComboBox.getSelectedItem().toString();
 					textField.setText(codiceSelected);
 					create2(comboBox_1);
 					

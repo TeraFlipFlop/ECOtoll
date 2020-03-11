@@ -3,7 +3,7 @@ package Controller;
 import DAO.TariffeDAO;
 import model.Tariffe;
 
-public class tariffeCTRL {
+public class TariffeCTRL {
 
 
 	public Tariffe createTariffe() {

@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
-import Controller.tariffeCTRL;
+import Controller.TariffeCTRL;
 import model.Autostrada;
 import model.Casello;
 import model.Database;
@@ -50,13 +50,13 @@ public class AutostradaDAO {
 		Autostrada b = new Autostrada (null,cod,null,tipologia);
 		
 		 if (tipologia.equals("pianura")) {
-		 b.setTariffe(new tariffeCTRL().createTariffe().getTariffaP());
+		 b.setTariffe(new TariffeCTRL().createTariffe().getTariffaP());
 		 b.setCaselli(new CaselloCTRL().getCaselli(b));
 		 
 		 }
 		
 		 if (tipologia.equals("montagna")) {
-		 b.setTariffe(new tariffeCTRL().createTariffe().getTariffaM());
+		 b.setTariffe(new TariffeCTRL().createTariffe().getTariffaM());
 		 b.setCaselli(new CaselloCTRL().getCaselli(b));
 		 }
 		

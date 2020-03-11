@@ -5,12 +5,12 @@ import java.util.Iterator;
 
 import Controller.AutostradaCTRL;
 import Controller.VeicoloCTRL;
-import Controller.tariffeCTRL;
+import Controller.TariffeCTRL;
 
 public class test2 {
 
 	public static void main(String[] args) {
-		Tariffe t= new tariffeCTRL().createTariffe();
+		Tariffe t= new TariffeCTRL().createTariffe();
 		
 		Autostrada a =new Autostrada(null,"A01" ,t.getTariffaM() , Tipologia.montagna);
 		Autostrada b =new AutostradaCTRL().getAutostrada("A01");

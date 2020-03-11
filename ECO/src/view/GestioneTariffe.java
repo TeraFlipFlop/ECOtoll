@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Controller.tariffeCTRL;
+import Controller.TariffeCTRL;
 import view.Login;
-import Controller.tariffeCTRL;
+import Controller.TariffeCTRL;
 import Controller.LoginController;
 import model.Tariffe;
 
@@ -51,7 +51,7 @@ public class GestioneTariffe extends JFrame{
 	private JTextField textField_14;
 	private JTextField textField_15;
 	public GestioneTariffe(String username) {
-		 Tariffe t = new tariffeCTRL().createTariffe();
+		 Tariffe t = new TariffeCTRL().createTariffe();
 		double[] pianura= t.getTariffaP();
 		double[] oneri=t.getOneri();
 		double[] montagna=t.getTariffaM();
@@ -237,7 +237,7 @@ double[] montagna={Double.valueOf(text11),Double.valueOf(text12),Double.valueOf(
 		t.setTariffaM(montagna);
 		t.setOneri(oneri);
 		t.setTariffaP(pianura);
-		new tariffeCTRL().modtariffe(t);
+		new TariffeCTRL().modtariffe(t);
 			}
 		});
 		btnCambia.setBounds(162, 259, 117, 29);

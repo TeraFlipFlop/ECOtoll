@@ -1,7 +1,8 @@
 package model;
 
+import interfaces.Casellointer;
 
-public class Casello {
+public class Casello implements Casellointer {
 private int km;
 private String nome;
 private String idAuto;
