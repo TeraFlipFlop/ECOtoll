@@ -45,7 +45,7 @@ public class CalcoloTariffa extends JFrame {//da rifare
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private String entrata ="";
 	private String uscita ="";
-	private String autostrada= "A01";
+	private String autostrada= "";
 	
 	
 	public CalcoloTariffa(String username) {
