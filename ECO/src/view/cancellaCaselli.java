@@ -42,8 +42,6 @@ public class cancellaCaselli extends JFrame{
 	
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 	String a;
 	
 				//SCHERMATA INIZIALE
@@ -81,16 +79,6 @@ public class cancellaCaselli extends JFrame{
 			getContentPane().add(textField_1);
 			textField_1.setColumns(10);
 			
-			textField_2 = new JTextField();
-			textField_2.setBounds(272, 137, 130, 26);
-			getContentPane().add(textField_2);
-			textField_2.setColumns(10);
-			
-			textField_3 = new JTextField();
-			textField_3.setBounds(272, 175, 130, 26);
-			getContentPane().add(textField_3);
-			textField_3.setColumns(10);
-			
 			
 			
 			//BOTTONE REFRESH
@@ -118,77 +106,6 @@ getContentPane().add(btnRefresh);
 			JLabel lblID = new JLabel("ID");
 			lblID.setBounds(47, 104, 76, 16);
 			getContentPane().add(lblID);
-			
-			JLabel lblKm = new JLabel("km");
-			lblKm.setBounds(47, 142, 76, 16);
-			getContentPane().add(lblKm);
-			
-			JLabel lblNome = new JLabel("Nome");
-			lblNome.setBounds(47, 180, 61, 16);
-			getContentPane().add(lblNome);
-			
-			
-						//BOTTONE INSERISCI
-			
-			JButton btnInserisci = new JButton("inserisci");
-			btnInserisci.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					Connection con = new Database().Connect();
-					String codice= textField_1.getText();
-					String Km = textField_2.getText();
-					String nome = textField_3.getText();
-					String Autostrada = textField.getText();
-					
-					
-					java.sql.PreparedStatement st = null;
-					try {
-						st=con.prepareStatement(CREATE_QUERY_CASELLI);
-						
-						st.setString(1, codice);
-						st.setString(2, Km);
-						st.setString(3, Autostrada);
-						st.setString(4, nome);
-						
-						st.execute();
-						
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
-						System.out.print("ci sto dentro un casino");
-						btnRefresh.doClick();
-						JOptionPane.showMessageDialog(null, "inserito");
-
-				}
-			});
-						//DIMENSIONE BOTTONE INSERISCI
-			
-			btnInserisci.setBounds(20, 225, 117, 29);
-			getContentPane().add(btnInserisci);
-			
-			
-			
-						//BOTTONE MODIFICA
-			
-			JButton button = new JButton("sotto menù modifica");
-			button.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-					//CHIAMATE VIEW "ModAUTOSTRADA"
-					
-					 {
-						dispose();
-						ModCasello p = new ModCasello(username);
-						p.setVisible(true);
-					}
-			}
-			});
-			
-			
-						//DIMENSIONE BOTTONE MODIFICA
-			button.setBounds(149, 225, 175, 29);
-			getContentPane().add(button);
 			
 						//BOTTONE CANCELLA
 			
@@ -220,7 +137,7 @@ getContentPane().add(btnRefresh);
 			});
 						//DIMENSIONI BOTTONE CANCELLA
 			
-			btnCancella.setBounds(327, 225, 117, 29);
+			btnCancella.setBounds(47, 224, 117, 29);
 			getContentPane().add(btnCancella);
 			
 			
@@ -237,7 +154,7 @@ getContentPane().add(btnRefresh);
 			});
 						//Dimensioni bottone Mostra Tutto
 			
-			btnMostraTutto.setBounds(156, 263, 117, 29);
+			btnMostraTutto.setBounds(285, 224, 117, 29);
 			getContentPane().add(btnMostraTutto);
 				
 				

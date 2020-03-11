@@ -168,62 +168,6 @@ getContentPane().add(btnRefresh);
 			getContentPane().add(btnInserisci);
 			
 			
-			
-						//BOTTONE MODIFICA
-			
-			JButton button = new JButton("sotto menù modifica");
-			button.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-					//CHIAMATE VIEW "ModAUTOSTRADA"
-					
-					 {
-						dispose();
-						ModCasello p = new ModCasello(username);
-						p.setVisible(true);
-					}
-			}
-			});
-			
-			
-						//DIMENSIONE BOTTONE MODIFICA
-			button.setBounds(149, 225, 175, 29);
-			getContentPane().add(button);
-			
-						//BOTTONE CANCELLA
-			
-			JButton btnCancella = new JButton("Cancella");
-			btnCancella.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					Connection con = new Database().Connect();
-					String codice = textField.getText();
-			
-					java.sql.PreparedStatement st = null;
-					
-					try {
-						st=con.prepareStatement(DELETE_QUERY);
-						
-						st.setString(1, codice);
-
-						st.execute();
-						
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
-						System.out.print("dovrebbe andare");
-						btnRefresh.doClick();
-						JOptionPane.showMessageDialog(null, "eliminato");
-
-				}
-			});
-						//DIMENSIONI BOTTONE CANCELLA
-			
-			btnCancella.setBounds(327, 225, 117, 29);
-			getContentPane().add(btnCancella);
-			
-			
 					//Bottone Mostra Tutto
 			
 			JButton btnMostraTutto = new JButton("Mostra Tutto");
@@ -237,7 +181,7 @@ getContentPane().add(btnRefresh);
 			});
 						//Dimensioni bottone Mostra Tutto
 			
-			btnMostraTutto.setBounds(156, 263, 117, 29);
+			btnMostraTutto.setBounds(285, 225, 117, 29);
 			getContentPane().add(btnMostraTutto);
 				
 				

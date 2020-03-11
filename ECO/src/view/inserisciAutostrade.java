@@ -66,34 +66,6 @@ public class inserisciAutostrade extends JFrame {
 		btnIndietro.setBounds(327, 6, 117, 29);
 		getContentPane().add(btnIndietro);
 		
-						//BOTTONE CANCELLA
-		
-		JButton btnCancella = new JButton("cancella");
-		btnCancella.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Connection con = new Database().Connect();
-				String cod= textField.getText() ;
-				java.sql.PreparedStatement st = null;
-				try {
-					st=con.prepareStatement(DELETE_QUERY);
-					
-					st.setString(1, cod);
-		st.execute();
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				System.out.print("ho cancellato");
-				JOptionPane.showMessageDialog(null, "ho cancellato");
-				
-			}
-		});
-					//DIMENSIONI BOTTONE CANCELLA
-		
-		btnCancella.setBounds(302, 225, 117, 29);
-		getContentPane().add(btnCancella);
-		
 						//BOTTONE INSERISCI
 		
 		JButton btnInserisci = new JButton("inserisci");
@@ -127,7 +99,7 @@ public class inserisciAutostrade extends JFrame {
 		});
 					//DIMENSIONE BOTTONE INSERISCI
 		
-		btnInserisci.setBounds(20, 225, 117, 29);
+		btnInserisci.setBounds(39, 227, 117, 29);
 		getContentPane().add(btnInserisci);
 		
 							//SERIE DI TEXTFIELD
@@ -176,7 +148,7 @@ public class inserisciAutostrade extends JFrame {
 		});
 					//Dimensioni bottone Mostra Tutto
 		
-		btnMostraTutto.setBounds(168, 263, 117, 29);
+		btnMostraTutto.setBounds(276, 227, 117, 29);
 		getContentPane().add(btnMostraTutto);
 		
 		
@@ -223,26 +195,6 @@ public class inserisciAutostrade extends JFrame {
 		
 		btnRefresh.setBounds(198, 6, 117, 29);
 		getContentPane().add(btnRefresh);
-		
-					//BOTTONE MODIFICA
-		
-		JButton button = new JButton("scheda modifica");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//CHIAMATE VIEW "ModAUTOSTRADA"
-				
-				 {
-					dispose();
-					ModAutostrada p = new ModAutostrada(user);
-					p.setVisible(true);
-				}
-		}
-		});
-					//DIMENSIONE BOTTONE MODIFICA
-		
-		button.setBounds(130, 225, 175, 29);
-		getContentPane().add(button);
 	}
 }
 
