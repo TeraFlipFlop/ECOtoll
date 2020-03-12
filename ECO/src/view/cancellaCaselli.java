@@ -58,7 +58,7 @@ public class cancellaCaselli extends JFrame{
 			btnIndietro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
-					FinestraPrincipale u = new FinestraPrincipale(username);
+					GestioneCaselli u = new GestioneCaselli(username);
 					u.setVisible(true);
 				}
 			});

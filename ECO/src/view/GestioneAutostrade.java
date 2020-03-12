@@ -38,10 +38,6 @@ import javax.swing.JComboBox;
 public class GestioneAutostrade extends JFrame {
 	private static final String CREATE_QUERY_AUTOSTRADA = "insert into autostrada values(?,?,?,?)";
 	private static final String DELETE_QUERY = "delete from autostrada where codice = ?";	
-	
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 	String a;
 	
 				//FINESTRA PRINCIPALE
@@ -71,6 +67,11 @@ public class GestioneAutostrade extends JFrame {
 		JButton btnCancella = new JButton("cancella");
 		btnCancella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				cancellaAutostrade f = new cancellaAutostrade(user);
+				f.setVisible(true);
+				dispose();
+				/*
 				Connection con = new Database().Connect();
 				String cod= textField.getText() ;
 				java.sql.PreparedStatement st = null;
@@ -86,12 +87,12 @@ public class GestioneAutostrade extends JFrame {
 				}
 				System.out.print("ho cancellato");
 				JOptionPane.showMessageDialog(null, "ho cancellato");
-				
+				*/
 			}
 		});
 					//DIMENSIONI BOTTONE CANCELLA
 		
-		btnCancella.setBounds(302, 225, 117, 29);
+		btnCancella.setBounds(163, 93, 117, 29);
 		getContentPane().add(btnCancella);
 		
 						//BOTTONE INSERISCI
@@ -99,6 +100,11 @@ public class GestioneAutostrade extends JFrame {
 		JButton btnInserisci = new JButton("inserisci");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				inserisciAutostrade f = new inserisciAutostrade(user);
+				f.setVisible(true);
+				dispose();
+				
+				/*
 				Connection con = new Database().Connect();
 				String cod= textField.getText() ;
 				String tipo = textField_1.getText();
@@ -123,61 +129,12 @@ public class GestioneAutostrade extends JFrame {
 					System.out.print("ci sto dentro un casino");
 					JOptionPane.showMessageDialog(null, "autostrada inserita");
 
-			}
-		});
+			}*/
+			}});
 					//DIMENSIONE BOTTONE INSERISCI
 		
-		btnInserisci.setBounds(20, 225, 117, 29);
+		btnInserisci.setBounds(20, 93, 117, 29);
 		getContentPane().add(btnInserisci);
-		
-							//SERIE DI TEXTFIELD
-		
-		textField = new JTextField();
-		textField.setBounds(263, 60, 130, 26);
-		getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(263, 111, 130, 26);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(263, 149, 130, 26);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-					
-						//SERIE DI LABEL
-		
-		JLabel lblCodice = new JLabel("Codice");
-		lblCodice.setBounds(39, 65, 61, 16);
-		getContentPane().add(lblCodice);
-		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setBounds(39, 116, 61, 16);
-		getContentPane().add(lblTipo);
-		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(39, 154, 61, 16);
-		getContentPane().add(lblNome);
-			
-						//Bottone Mostra Tutto
-		
-		JButton btnMostraTutto = new JButton("Mostra Tutto");
-		btnMostraTutto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				mostra t=new mostra ();
-				t.setVisible(true);
-				t.setBounds(200, 200, 450, 339);
-				//mostra m=new mostra(0,null);
-				//m.setVisible(true);
-			}
-		});
-					//Dimensioni bottone Mostra Tutto
-		
-		btnMostraTutto.setBounds(168, 263, 117, 29);
-		getContentPane().add(btnMostraTutto);
 		
 		
 					//Label Gestione Autostrade
@@ -191,38 +148,6 @@ public class GestioneAutostrade extends JFrame {
 		ArrayList <String> codlist = new ArrayList <String>() ;
 		codlist =  new AutostradaCTRL().getCodAutostrada();
 		String [] codicevar = new String[codlist.size()];
-		JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
-		JComboBox codiceComboBox = jComboBox;
-		
-		codiceComboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			String	codiceSelected = codiceComboBox.getSelectedItem().toString();
-		textField.setText(codiceSelected);
-		ArrayList <String> codlist =  new AutostradaCTRL().getCodAutostrada();
-		String []codicevar = new String[codlist.size()];
-		
-			}
-		});
-						//DIMENSIONI COMBO BOX
-		
-		codiceComboBox.setBounds(130, 61, 130, 27);
-		getContentPane().add(codiceComboBox);
-		
-						//BOTTONE REFRESH
-		
-		JButton btnRefresh = new JButton("refresh");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GestioneAutostrade f = new GestioneAutostrade(user);
-				f.setVisible(true);
-				dispose();
-			}
-		});
-						//DIMENSIONI BOTTONE REFRESH
-		
-		btnRefresh.setBounds(198, 6, 117, 29);
-		getContentPane().add(btnRefresh);
 		
 					//BOTTONE MODIFICA
 		
@@ -241,7 +166,7 @@ public class GestioneAutostrade extends JFrame {
 		});
 					//DIMENSIONE BOTTONE MODIFICA
 		
-		button.setBounds(130, 225, 175, 29);
+		button.setBounds(308, 93, 117, 29);
 		getContentPane().add(button);
 	}
 }

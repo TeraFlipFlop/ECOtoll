@@ -55,22 +55,22 @@ public class GestioneTariffe extends JFrame{
 		double[] pianura= t.getTariffaP();
 		double[] oneri=t.getOneri();
 		double[] montagna=t.getTariffaM();
-		 double text=  pianura[1];   //("A", "pianura")  ;
-		 double text1= pianura[2];
-		 double text2= pianura[3];
-		 double text3= pianura[4];
-		 double text4=pianura[5];
-		 double text5 =oneri[1];
-		 double text6 = oneri[2];
-		 double text7 = oneri[3];
-		 double text8 = oneri[4];
-		 double text9 = oneri[5];
-		 double text10 = oneri[6];
-		 double text11 = montagna[1];
-		 double text12 =montagna[2];
-		 double text13 = montagna[3];
-		 double text14 =montagna[4];
-		 double text15 = montagna[5];
+		 double text=  pianura[0];   //("A", "pianura")  ;
+		 double text1= pianura[1];
+		 double text2= pianura[2];
+		 double text3= pianura[3];
+		 double text4=pianura[4];
+		 double text5 =oneri[0];
+		 double text6 = oneri[1];
+		 double text7 = oneri[2];
+		 double text8 = oneri[3];
+		 double text9 = oneri[4];
+		 double text10 = oneri[5];
+		 double text11 = montagna[0];
+		 double text12 =montagna[1];
+		 double text13 = montagna[2];
+		 double text14 =montagna[3];
+		 double text15 = montagna[4];
 		
 		 
 		

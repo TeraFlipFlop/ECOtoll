@@ -99,7 +99,7 @@ public class Login extends JFrame {
 					//BOTTONE LOGIN
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-					
+		
 					//DIMENSIONI BOTTONE LOGIN
 		btnLogin.setBounds(176, 238, 89, 23);
 		contentPane.add(btnLogin);

@@ -54,9 +54,9 @@ public class cancellaAutostrade extends JFrame {
 		JButton btnIndietro = new JButton("indietro");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GestioneAutostrade f = new GestioneAutostrade(user);
+				f.setVisible(true);
 				dispose();
-				FinestraPrincipale l = new FinestraPrincipale(user);
-				l.setVisible(true);
 			}
 		});
 					//DIMENSIONI BOTTONE INDIETRO

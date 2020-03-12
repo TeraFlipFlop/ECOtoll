@@ -18,6 +18,7 @@ import model.Casello;
 import model.Pedaggio;
 import model.Percorso;
 import model.Veicolo;
+import Controller.*;
 
 import javax.swing.JButton;
 import java.awt.Font;
@@ -46,11 +47,11 @@ public class CalcoloTariffa extends JFrame {//da rifare
 	private String entrata ="";
 	private String uscita ="";
 	private String autostrada= "";
-	
+	Autostrada a;
 	
 	public CalcoloTariffa(String username) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+		setBounds(100, 100, 700, 500);
 		//BOTTONE INDIETRO
 				JButton btnIndietro = new JButton("indietro");
 				btnIndietro.addActionListener(new ActionListener() {
@@ -135,84 +136,76 @@ public class CalcoloTariffa extends JFrame {//da rifare
 		getContentPane().add(lblUscita);
 		
 		
+		
+		
+		JComboBox<String> comboBox_2 = new JComboBox<String>();
+		comboBox_2.setBounds(484, 202, 76, 22);
+		getContentPane().add(comboBox_2);
+		
+		
 							//combobox Autostrada
 		
 		JComboBox jComboBox = new JComboBox();
 		
 		ArrayList <String> codlist = new ArrayList <String>() ;
 		codlist =  new AutostradaCTRL().getCodAutostrada();
+		codlist.add(0, " ");
 		String [] codicevar = new String[codlist.size()];
 		JComboBox jComboBox1 = new JComboBox(codlist.toArray(codicevar));
 		JComboBox codiceComboBox = jComboBox1;
 		
-		codiceComboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			String	codiceSelected = codiceComboBox.getSelectedItem().toString();
-		ArrayList <String> codlist =  new AutostradaCTRL().getCodAutostrada();
-		String []codicevar = new String[codlist.size()];
 		
-			}
-		});
 		
-		jComboBox1.setBounds(484, 97, 76, 22);
-		getContentPane().add(jComboBox1);
+		codiceComboBox.setBounds(484, 97, 76, 22);
+		getContentPane().add(codiceComboBox);
 		
 		
 		
 		
-		
-		
-		
-		
-		JComboBox comboBox_1 = new JComboBox();
-		//qua
-		ArrayList<Casello> c=new ArrayList <Casello>() ;//= new ArrayList <Casello>(new CaselloCTRL().getCaselli(new AutostradaCTRL().getAutostrada("*")));
-		ArrayList <String> codlistcaselli= new ArrayList<String>(); 
-		 for(Casello w:c)codlistcaselli.add(w.getNome());
-		String [] codicevar1 = new String[codlistcaselli.size()];
-		JComboBox jComboBox11 = new JComboBox(codlistcaselli.toArray(codicevar1));
-		JComboBox codiceComboBox1 = jComboBox11;
-		
-		codiceComboBox1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			String	codiceSelected = codiceComboBox1.getSelectedItem().toString();
-			entrata =codiceComboBox1.getSelectedItem().toString();
-		ArrayList <String> codlistcaselli = new ArrayList<String>(); //=  new CaselloCTRL().getCaselli(codiceSelected);//
-		String []codicevar1 = new String[codlistcaselli.size()];
-		
-			}
-		});
-		
-		codiceComboBox1.setBounds(484, 144, 114, 27);
-		getContentPane().add(codiceComboBox1);
-		setBounds(100, 100, 711, 380);
-		
-		
-		
-		JComboBox comboBox_2 = new JComboBox();
-		
-		ArrayList <String> codlistcaselli2 = new ArrayList <String>();//new AutostradaCtrl().getCodCaselli()); 
-		 
-		String [] codicevar2 = new String[codlistcaselli2.size()];
-		JComboBox jComboBox12 = new JComboBox(codlistcaselli2.toArray(codicevar2));
-		JComboBox codiceComboBox2 = jComboBox12;
-		
-		codiceComboBox2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			String	codiceSelected2 = codiceComboBox2.getSelectedItem().toString();
-			uscita=codiceComboBox2.getSelectedItem().toString();
-		ArrayList <String> codlistcaselli2 =new ArrayList <String>();// =  new CaselloCTRL().getCaselli(new AutostradaCTRL().getAutostrada(autostrada));;
-		String []codicevar2 = new String[codlistcaselli2.size()];
-		
-			}
-		});
-		
-		codiceComboBox2.setBounds(484, 197, 114, 27);
-		getContentPane().add(codiceComboBox2);
+		JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setBounds(484, 148, 76, 22);
+		getContentPane().add(comboBox);
 	
+		    comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			String	codiceSelected = comboBox.getSelectedItem().toString();
+			entrata =comboBox.getSelectedItem().toString();
+			textField_1.setText(codiceSelected);
+
+		
+			}
+		});
+		
+	
+		
+		
+		
+		    comboBox_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			String	codiceSelected2 = comboBox_2.getSelectedItem().toString();
+			uscita=comboBox_2.getSelectedItem().toString();
+			textField_1.setText(codiceSelected2);
+
+			}});
+		
+		
+		
+		    codiceComboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String	codiceSelected = codiceComboBox.getSelectedItem().toString();
+				
+				a=new AutostradaCTRL().getAutostrada(codiceSelected);
+
+				create2(comboBox,codiceSelected);
+				create2(comboBox_2,codiceSelected);
+			
+			}
+		});
+		
+		
+		
 
 	JButton btnCalcola = new JButton("calcola");
 	btnCalcola.addActionListener(new ActionListener() {
@@ -232,7 +225,36 @@ public class CalcoloTariffa extends JFrame {//da rifare
 		textField_1.setText(String.valueOf(pedaggio.tariffaFinale(g)));}});
 	
 	///////////////////////////////////////////////////////
-	btnCalcola.setBounds(257, 167, 123, 21);
+	btnCalcola.setBounds(257,167, 123, 21);
 	getContentPane().add(btnCalcola);
-}}
+}
+	public void create1(JComboBox<String> combo) {
+		combo.removeAllItems();
+		combo.addItem(" ");
+		
+		System.out.println(a.getId());
+		ArrayList<Autostrada> c = new AutostradaCTRL().getAutostrada();
+		
+		
+		for(Autostrada p:c) {combo.addItem(p.getId());}
+		
+		getContentPane().add(combo);
+			};
+			
+			public void create2(JComboBox<String> combo,String  a) {
+				combo.removeAllItems();
+				combo.addItem(" ");
+				Autostrada b = new AutostradaCTRL().getAutostrada(a);
+
+				System.out.println(b.getId());
+				ArrayList<Casello> c = new CaselloCTRL().getCaselli(b);
+				
+				
+				
+				for(Casello p:c) {combo.addItem(p.getNome());}
+				
+				getContentPane().add(combo);
+					};
+			
+}
 
