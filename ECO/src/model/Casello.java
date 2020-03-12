@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.Casellointer;
+import model.interfaces.Casellointer;
 
 public class Casello implements Casellointer {
 private int km;

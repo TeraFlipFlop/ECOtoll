@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.PercorsoInter;
+import model.interfaces.PercorsoInter;
 
 public class Percorso implements PercorsoInter {
 		private Casello entrata;

@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.Veicolointer;
+import model.interfaces.Veicolointer;
 
 enum ClasseAmbienale{Euro1,Euro2,Euro3,Euro4,Euro5,Euro6}
 public abstract class  Veicolo implements Veicolointer{

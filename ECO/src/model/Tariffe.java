@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.Tariffeinter;
+import model.interfaces.Tariffeinter;
 
 public class Tariffe implements Tariffeinter{
 private double[] tariffaM;

@@ -1,6 +1,7 @@
 package model;
 import java.util.*;
-import interfaces.AutostradaInter;
+
+import model.interfaces.AutostradaInter;
 
 enum  Tipologia {pianura, montagna};
 public class Autostrada implements AutostradaInter {

@@ -1,4 +1,4 @@
-package interfaces;
+package model.interfaces;
 
 import model.Classe3;
 import model.Classe4;

@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.PedaggioInter;
+import model.interfaces.PedaggioInter;
 
 public class Pedaggio implements PedaggioInter {
 private int iva = 22;

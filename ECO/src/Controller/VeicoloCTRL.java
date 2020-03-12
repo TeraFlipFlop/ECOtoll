@@ -1,8 +1,7 @@
 package Controller;
 
-import DAO.VeicoloDAO;
-
 import model.Veicolo;
+import model.DAO.VeicoloDAO;
 
 public class VeicoloCTRL {
 	
