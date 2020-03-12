@@ -1,17 +1,24 @@
-package model;
+package model.components;
 
-public class Classe5 extends Veicolo {
+public class ClasseA extends Veicolo {
 
-	public Classe5(String targa, String modello, String marca, int anno, int peso, double co22, int assi,
+	public ClasseA(String targa, String modello, String marca, int anno, int peso, double co22, int assi,
 			ClasseAmbienale classeAmbientale2, int altezza) {
 		super(targa, modello, marca, anno, peso, co22, assi, classeAmbientale2, altezza);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Classe5() {
+	public ClasseA() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 
-}
+	
+	
+	}
+
+
+	
+	
+

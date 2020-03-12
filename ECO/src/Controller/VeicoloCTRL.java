@@ -1,7 +1,7 @@
 package Controller;
 
-import model.Veicolo;
 import model.DAO.VeicoloDAO;
+import model.components.Veicolo;
 
 public class VeicoloCTRL {
 	

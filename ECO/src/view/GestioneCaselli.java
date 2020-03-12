@@ -14,9 +14,9 @@ import view.Login;
 import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
 import Controller.LoginController;
-import model.Autostrada;
-import model.Casello;
-import model.Database;
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.Database;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;

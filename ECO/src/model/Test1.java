@@ -2,6 +2,14 @@ package model;
 
 import java.util.ArrayList;
 
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.ClasseA;
+import model.components.ClasseAmbienale;
+import model.components.Pedaggio;
+import model.components.Percorso;
+import model.components.Tipologia;
+
 public class Test1 {
 
 	public static void main(String[] args) {

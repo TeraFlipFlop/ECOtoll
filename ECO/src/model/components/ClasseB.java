@@ -1,4 +1,4 @@
-package model;
+package model.components;
 
 public class ClasseB extends Veicolo {
 

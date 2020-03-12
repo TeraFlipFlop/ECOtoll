@@ -5,6 +5,12 @@ import java.util.Iterator;
 
 import Controller.AutostradaCTRL;
 import Controller.VeicoloCTRL;
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.ClasseB;
+import model.components.Tariffe;
+import model.components.Tipologia;
+import model.components.Veicolo;
 import Controller.TariffeCTRL;
 
 public class test2 {

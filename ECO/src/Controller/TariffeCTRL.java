@@ -1,7 +1,7 @@
 package Controller;
 
-import model.Tariffe;
 import model.DAO.TariffeDAO;
+import model.components.Tariffe;
 
 public class TariffeCTRL {
 

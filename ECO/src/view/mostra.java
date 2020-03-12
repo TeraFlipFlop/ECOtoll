@@ -12,10 +12,9 @@ import Controller.CaselloCTRL;
 import view.Login;
 import Controller.AutostradaCTRL;
 import Controller.LoginController;
-import model.Autostrada;
-import model.Casello;
-
-import model.Database;
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.Database;
 
 import javax.swing.JButton;
 import java.awt.Font;

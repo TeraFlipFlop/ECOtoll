@@ -1,4 +1,4 @@
-package model;
+package model.components;
 import java.util.*;
 
 import model.interfaces.AutostradaInter;

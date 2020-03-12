@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controller.TariffeCTRL;
+import model.components.Tariffe;
 import view.Login;
 import Controller.TariffeCTRL;
 import Controller.LoginController;
-import model.Tariffe;
 
 import javax.swing.JButton;
 import java.awt.Font;

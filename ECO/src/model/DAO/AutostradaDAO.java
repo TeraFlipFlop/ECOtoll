@@ -9,9 +9,9 @@ import java.util.Iterator;
 import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
 import Controller.TariffeCTRL;
-import model.Autostrada;
-import model.Casello;
-import model.Database;
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.Database;
 
 
 

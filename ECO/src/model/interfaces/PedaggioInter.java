@@ -1,11 +1,11 @@
 package model.interfaces;
 
-import model.Classe3;
-import model.Classe4;
-import model.Classe5;
-import model.ClasseA;
-import model.ClasseB;
-import model.Veicolo;
+import model.components.Classe3;
+import model.components.Classe4;
+import model.components.Classe5;
+import model.components.ClasseA;
+import model.components.ClasseB;
+import model.components.Veicolo;
 
 public interface PedaggioInter {
 

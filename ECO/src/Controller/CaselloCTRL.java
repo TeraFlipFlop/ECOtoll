@@ -2,9 +2,9 @@ package Controller;
 
 import java.util.ArrayList;
 
-import model.Autostrada;
-import model.Casello;
 import model.DAO.CaselloDAO;
+import model.components.Autostrada;
+import model.components.Casello;
 
 public class CaselloCTRL {
 public ArrayList<Casello> getCaselli(Autostrada a){

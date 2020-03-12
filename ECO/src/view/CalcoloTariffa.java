@@ -8,16 +8,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controller.VeicoloCTRL;
+import model.components.Autostrada;
+import model.components.Casello;
+import model.components.Pedaggio;
+import model.components.Percorso;
+import model.components.Veicolo;
 import view.Login;
 import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
 import Controller.LoginController;
-
-import model.Autostrada;
-import model.Casello;
-import model.Pedaggio;
-import model.Percorso;
-import model.Veicolo;
 import Controller.*;
 
 import javax.swing.JButton;

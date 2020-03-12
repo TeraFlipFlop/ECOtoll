@@ -2,8 +2,8 @@ package Controller;
 
 import java.util.ArrayList;
 
-import model.Autostrada;
 import model.DAO.AutostradaDAO;
+import model.components.Autostrada;
 
 public class AutostradaCTRL {
 	public Autostrada getAutostrada(String id) {

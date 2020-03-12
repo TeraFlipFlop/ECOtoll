@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.Database;
-import model.Tariffe;
+import model.components.Database;
+import model.components.Tariffe;
 
 public class TariffeDAO {
 		public Tariffe buildTariffe() {
