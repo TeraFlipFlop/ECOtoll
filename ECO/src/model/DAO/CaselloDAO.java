@@ -85,7 +85,7 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 	return alist;}
 
 public void update(Casello casello) {
-	// TODO Auto-generated method stub
+	// 
 	
 }
 

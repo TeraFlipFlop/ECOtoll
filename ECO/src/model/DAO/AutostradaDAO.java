@@ -111,6 +111,11 @@ public class AutostradaDAO {
 			 a.add(new AutostradaDAO().getAutostrada(s));
 			 }
 		 return a;
+	}
+
+	public void modAuto(Autostrada a) {
+		//sql
+		
 	}}
 	
 

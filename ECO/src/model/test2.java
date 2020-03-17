@@ -9,7 +9,7 @@ import model.components.Autostrada;
 import model.components.Casello;
 import model.components.ClasseB;
 import model.components.Tariffe;
-import model.components.Tipologia;
+
 import model.components.Veicolo;
 import Controller.TariffeCTRL;
 
@@ -18,7 +18,7 @@ public class test2 {
 	public static void main(String[] args) {
 		Tariffe t= new TariffeCTRL().createTariffe();
 		
-		Autostrada a =new Autostrada(null,"A01" ,t.getTariffaM() , Tipologia.montagna);
+		Autostrada a =new Autostrada(null,"A01" ,t.getTariffaM() , "montagna");
 		Autostrada b =new AutostradaCTRL().getAutostrada("A01");
 		
 		System.out.println(b.getId());

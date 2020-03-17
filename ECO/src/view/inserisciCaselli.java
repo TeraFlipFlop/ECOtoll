@@ -199,6 +199,7 @@ getContentPane().add(btnRefresh);
 				ArrayList <String> codlist = new ArrayList <String>() ;
 				
 				codlist =  new AutostradaCTRL().getCodAutostrada();
+				codlist.add(0, "");
 				String [] codicevar = new String[codlist.size()];
 				JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
 				JComboBox codiceComboBox = jComboBox;
@@ -249,7 +250,7 @@ getContentPane().add(btnRefresh);
 					
 					public void create2(JComboBox<String> combo) {
 					combo.removeAllItems();
-					combo.addItem(" ");
+					combo.addItem("");
 					Autostrada b = new AutostradaCTRL().getAutostrada(textField.getText());
 					System.out.println(b.getId());
 					ArrayList<Casello> c = new CaselloCTRL().getCaselli(b);

@@ -25,21 +25,15 @@ public class TariffeDAO {
 			Statement st=con.createStatement();
 			
 			for (i=0;i<5;i++) {
-			ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ montagna+"' and  categoria ='"+ cat[i]+"'");
-	
-			
-	
-			
+ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ montagna+"' and  categoria ='"+ cat[i]+"'");
+
 			if(result.next()) {
 				
-					m[i]=result.getDouble("Valore");
+				m[i]=result.getDouble("Valore");
 				}
-				
-			}
-			t.setTariffaM(m);
-
-			} catch (SQLException e) {
-			
+				}
+		t.setTariffaM(m);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
@@ -50,20 +44,12 @@ public class TariffeDAO {
 			for (i=0;i<5;i++) {
 			ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ pianura+"' and  categoria ='"+ cat[i]+"'");
 	
-			
-	
-			
 			if(result.next()) {
 				
-					p[i]=result.getDouble("Valore");
+				p[i]=result.getDouble("Valore");
 				}
-				
-			}
+				}
 			t.setTariffaP(p);
-
-			
-			
-		
 
 		} catch (SQLException e) {
 			
@@ -89,29 +75,32 @@ public class TariffeDAO {
 				
 			}
 			t.setOneri(d);
-
-			
-			
-		
-
-			}} catch (SQLException e) {
+}} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+				
 		return t;
-		
-		
-	
-
 }
 
 		public void update(Tariffe t) {
+			String montagna="montagna";
+			String pianura ="pianura";
+			String [] cat= {"a","b","3","4","5"};
 			
-			
-		}
+			Connection con = new Database().Connect();
+			try {
+				Statement st=con.createStatement();
+				
+				for (int i = 0;i<5;i++) {
 
-	 }
+st.execute("update tariffa set Valore ="+t.getTariffaM()[i] +"  where Tipo ='"+ montagna+"' and  categoria ='"+ cat[i]+"'");
+		
+st.execute("update tariffa set Valore ="+t.getTariffaP()[i] +"  where Tipo ='"+ pianura+"' and  categoria ='"+ cat[i]+"'");}
+				for (int i=0;i<6;i++) {
+st.execute("update oneri set importo ="+t.getOneri()[i] +"  where euro ='"+ (i+1) +"' ;");
+}
+} catch (SQLException e) {
+	e.printStackTrace();
+}
+			}}

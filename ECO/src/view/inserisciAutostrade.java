@@ -51,7 +51,26 @@ public class inserisciAutostrade extends JFrame {
 		setBounds(100, 100, 453, 346);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-					//BOTTONE INDIETRO
+					
+		//BOTTONE REFRESH
+		
+JButton btnRefresh = new JButton("refresh");
+btnRefresh.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		inserisciAutostrade f = new inserisciAutostrade(user);
+		f.setVisible(true);
+		dispose();
+	}
+});
+				//DIMENSIONI BOTTONE REFRESH
+
+btnRefresh.setBounds(198, 6, 117, 29);
+getContentPane().add(btnRefresh);
+
+		
+		
+
+		//BOTTONE INDIETRO
 		
 		JButton btnIndietro = new JButton("indietro");
 		btnIndietro.addActionListener(new ActionListener() {
@@ -87,14 +106,17 @@ public class inserisciAutostrade extends JFrame {
 					
 					st.execute();
 					
+					
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
 					System.out.print("ci sto dentro un casino");
+					btnRefresh.doClick();
 					JOptionPane.showMessageDialog(null, "autostrada inserita");
-
+					
 			}
 		});
 					//DIMENSIONE BOTTONE INSERISCI
@@ -154,7 +176,7 @@ public class inserisciAutostrade extends JFrame {
 		
 					//Label Gestione Autostrade
 		
-		JLabel lblGestioneAutostrade = new JLabel("Gestione Autostrade");
+		JLabel lblGestioneAutostrade = new JLabel("inserisci Autostrade");
 		lblGestioneAutostrade.setBounds(39, 19, 130, 16);
 		getContentPane().add(lblGestioneAutostrade);
 				
@@ -162,6 +184,7 @@ public class inserisciAutostrade extends JFrame {
 		
 		ArrayList <String> codlist = new ArrayList <String>() ;
 		codlist =  new AutostradaCTRL().getCodAutostrada();
+		codlist.add(0, "");
 		String [] codicevar = new String[codlist.size()];
 		JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
 		JComboBox codiceComboBox = jComboBox;
@@ -181,20 +204,7 @@ public class inserisciAutostrade extends JFrame {
 		codiceComboBox.setBounds(130, 61, 130, 27);
 		getContentPane().add(codiceComboBox);
 		
-						//BOTTONE REFRESH
-		
-		JButton btnRefresh = new JButton("refresh");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				inserisciAutostrade f = new inserisciAutostrade(user);
-				f.setVisible(true);
-				dispose();
-			}
-		});
-						//DIMENSIONI BOTTONE REFRESH
-		
-		btnRefresh.setBounds(198, 6, 117, 29);
-		getContentPane().add(btnRefresh);
+	
 	}
 }
 
