@@ -39,18 +39,20 @@ public class Login extends JFrame {
 		//RICHIESTA DI CONNESSIONE DATABASE
 		
 			try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+					Class.forName("com.mysql.jdbc.Driver");
+					} catch (ClassNotFoundException e1) {
+					JOptionPane.showMessageDialog(null, "error");
+					e1.printStackTrace();
+					}
 				
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+					EventQueue.invokeLater(new Runnable() {
+	public void run() {
+			try {
 					Login frame = new Login();
 					frame.setVisible(true);
-				} catch (Exception e) {
+					} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "error");
+
 					e.printStackTrace();
 				}
 			}
@@ -110,22 +112,18 @@ public class Login extends JFrame {
 				username = usernameField.getText();
 				password = passwordField.getText();
 				if (!username.equals("") && !password.equals("")) {
-					String tipo = new LoginController().login(username, password);
-					if(tipo.equals("amministratore")) {
+				String tipo = new LoginController().login(username, password);
+				if(tipo.equals("amministratore")) {
 						dispose();
 						FinestraPrincipale f = new FinestraPrincipale(username); 
-					JOptionPane.showMessageDialog(null, "Credenziali corrette"); 
+							
 						f.setVisible(true);
-						} else JOptionPane.showMessageDialog(null, "Credenziali Errate"); 
-				} else {
-					JOptionPane.showMessageDialog(null, "uno dei due campi Ã¨ vuoto");
-				}
-			}
-		});
-	}
+						}
+						
+						} else {JOptionPane.showMessageDialog(null, "Uno o più campi vuoti");}}});
+						}
 	
-	//STRINGA "USERNAME" CHIAMATA NELLA "FINESTRA PRINCIPALE" 
-	//PER VISUALIZZARE L'UTENTE ATTUALMENTE LOGGATO
+	
 	
 	public String getuser () {
 		return username;

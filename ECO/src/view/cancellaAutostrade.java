@@ -14,6 +14,7 @@ import com.mysql.jdbc.PreparedStatement;
 import Controller.AutostradaCTRL;
 import Controller.LoginController;
 import model.DAO.AutostradaDAO;
+import model.components.Autostrada;
 import model.components.Database;
 import view.Login;
 
@@ -36,18 +37,37 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 
 public class cancellaAutostrade extends JFrame {
-	private static final String CREATE_QUERY_AUTOSTRADA = "insert into autostrada values(?,?,?,?)";
-	private static final String DELETE_QUERY = "delete from autostrada where codice = ?";	
+	
+	
 	
 	private JTextField textField;
 	String a;
 	
+
+
+
 				//FINESTRA PRINCIPALE
 	
 	public cancellaAutostrade(String  user) {
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 453, 346);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		//refresh
+
+		JButton btnRefresh = new JButton("refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancellaAutostrade f = new cancellaAutostrade(user);
+				f.setVisible(true);
+				dispose();
+			}
+		});
+						//DIMENSIONI BOTTONE REFRESH
+		
+		//btnRefresh.setBounds(198, 6, 117, 29);
+		//getContentPane().add(btnRefresh);
+		
 		
 					//BOTTONE INDIETRO
 		
@@ -66,26 +86,21 @@ public class cancellaAutostrade extends JFrame {
 		
 						//BOTTONE CANCELLA
 		
-		JButton btnCancella = new JButton("cancella");
-		btnCancella.addActionListener(new ActionListener() {
+			JButton btnCancella = new JButton("cancella");
+			btnCancella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Connection con = new Database().Connect();
-				String cod= textField.getText() ;
-				java.sql.PreparedStatement st = null;
-				try {
-					st=con.prepareStatement(DELETE_QUERY);
-					
-					st.setString(1, cod);
-		st.execute();
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				System.out.print("ho cancellato");
-				JOptionPane.showMessageDialog(null, "ho cancellato");
+			Autostrada y=new   AutostradaCTRL().getAutostrada(textField.getText());
 				
-			}
+				
+			int	J=JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
+				if (J==1) {btnRefresh.doClick();}else{
+					
+				new AutostradaCTRL().delete(y);
+				
+			
+				btnRefresh.doClick();
+				
+				}}
 		});
 					//DIMENSIONI BOTTONE CANCELLA
 		
@@ -114,8 +129,7 @@ public class cancellaAutostrade extends JFrame {
 				mostra t=new mostra ();
 				t.setVisible(true);
 				t.setBounds(200, 200, 450, 339);
-				//mostra m=new mostra(0,null);
-				//m.setVisible(true);
+				
 			}
 		});
 					//Dimensioni bottone Mostra Tutto
@@ -154,22 +168,8 @@ public class cancellaAutostrade extends JFrame {
 		codiceComboBox.setBounds(130, 61, 130, 26);
 		getContentPane().add(codiceComboBox);
 		
-						//BOTTONE REFRESH
-		
-		JButton btnRefresh = new JButton("refresh");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cancellaAutostrade f = new cancellaAutostrade(user);
-				f.setVisible(true);
-				dispose();
-			}
-		});
-						//DIMENSIONI BOTTONE REFRESH
-		
-		btnRefresh.setBounds(198, 6, 117, 29);
-		getContentPane().add(btnRefresh);
-	}
-}
+	
+}}
 
 
 

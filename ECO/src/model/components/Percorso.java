@@ -1,5 +1,7 @@
 package model.components;
 
+import javax.swing.JOptionPane;
+
 import model.interfaces.PercorsoInter;
 
 public class Percorso implements PercorsoInter {
@@ -48,7 +50,11 @@ public class Percorso implements PercorsoInter {
 
 
 	@Override
-	public int KmPercorsi(){return this.uscita.getKm()-this.entrata.getKm();};
+	public int KmPercorsi(){
+		
+		
+			return Math.abs(this.entrata.getKm()-this.uscita.getKm());};
+			
 	
 
 }

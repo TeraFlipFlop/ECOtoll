@@ -94,8 +94,8 @@ btnRefresh.addActionListener(new ActionListener() {
 });
 			//DIMENSIONI BOTTONE REFRESH
 
-btnRefresh.setBounds(198, 6, 117, 29);
-getContentPane().add(btnRefresh);
+//btnRefresh.setBounds(198, 6, 117, 29);
+//getContentPane().add(btnRefresh);
 			
 			
 						//SERIE DI LABEL

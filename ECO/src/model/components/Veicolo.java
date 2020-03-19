@@ -107,6 +107,16 @@ public int getAltezza() {
 public void setAltezza(int altezza) {
 	this.altezza = altezza;
 }
+public int classeV () {
+	if(this.getClass().equals(new ClasseA().getClass())) {return 1;}
+	if(this.getClass().equals(new ClasseB().getClass())) {return 2;}
+	if(this.getClass().equals(new Classe3().getClass())) {return 3;}
+	if(this.getClass().equals(new Classe4().getClass())) {return 4;}
+	if(this.getClass().equals(new Classe5().getClass())) {return 5;}
+
+
+	return 0;}
+
 
 
 

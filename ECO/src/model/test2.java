@@ -7,6 +7,10 @@ import Controller.AutostradaCTRL;
 import Controller.VeicoloCTRL;
 import model.components.Autostrada;
 import model.components.Casello;
+import model.components.Classe3;
+import model.components.Classe4;
+import model.components.Classe5;
+import model.components.ClasseA;
 import model.components.ClasseB;
 import model.components.Tariffe;
 
@@ -16,54 +20,55 @@ import Controller.TariffeCTRL;
 public class test2 {
 
 	public static void main(String[] args) {
-		Tariffe t= new TariffeCTRL().createTariffe();
+		//Tariffe t= new TariffeCTRL().createTariffe();
 		
-		Autostrada a =new Autostrada(null,"A01" ,t.getTariffaM() , "montagna");
-		Autostrada b =new AutostradaCTRL().getAutostrada("A01");
+		//Autostrada a =new Autostrada(null,"A01" ,t.getTariffaM() , "montagna");
+		//Autostrada b =new AutostradaCTRL().getAutostrada("A01");
 		
-		System.out.println(b.getId());
+		//System.out.println(b.getId());
 		
-		for(Casello r:b.getCaselli()){System.out.println(r.getNome());}
+		//for(Casello r:b.getCaselli()){//System.out.println(r.getNome());}
 		
-		System.out.println(b.getTipoAutostrada(b.getTipoAutostrada()));
+		//System.out.println(b.getTipoToString());
 		
-		for (double r :  t.getTariffaM()) {
-			System.out.println(r);
+		//for (double r :  t.getTariffaM()) {
+			//System.out.println(r);
 			
-		}
+	//	}
 	    
-		Veicolo s =new VeicoloCTRL().getv();
+		//Veicolo s =new VeicoloCTRL().getv();
 	    
-		if(s.getClass().equals(new ClasseB().getClass() )) 
-		{		
-			System.out.println("yes");
-}
-		else {		
+		//if(s.getClass().equals(new ClasseB().getClass() )) 
+	//	{		
+			//System.out.println("yes");
+//}
+//		else {		
 	
-			System.out.println("no");
-}
+			//System.out.println("no");
+//}
 	
-		ArrayList<Autostrada> w = new AutostradaCTRL().getAutostrada();
+		//ArrayList<Autostrada> w = new AutostradaCTRL().getAutostrada();
 
-		Iterator<Autostrada> i= w.iterator();
+		//Iterator<Autostrada> i= w.iterator();
 	
-		while (i.hasNext()) {
+		//while (i.hasNext()) {
 	
-			System.out.println(i.next().getId())	;}
+			//System.out.println(i.next().getId())	;
+			//}
 		
 	
-		ArrayList<String> q = new AutostradaCTRL().getCodAutostrada();
+		//ArrayList<String> q = new AutostradaCTRL().getCodAutostrada();
 	
-		Iterator<String> z = q.iterator();
+		//Iterator<String> z = q.iterator();
 	
-		while (z.hasNext()){
+		//while (z.hasNext()){
 		
-			System.out.println(z.next())	;
-	}
-		
+			//System.out.println(z.next())	;
+	//}
+		Veicolo p =new VeicoloCTRL().getv();
+		int typo=p.classeV();
+		System.out.print(typo);
 	
-
-		
 	}}
 
 

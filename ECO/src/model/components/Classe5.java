@@ -13,5 +13,16 @@ public class Classe5 extends Veicolo {
 		// TODO Auto-generated constructor stub
 	}
 	
-
+	public Classe5(Veicolo v) {
+		this.targa = v.targa;
+		this.modello = v.modello;
+		this.marca = v.marca;
+		this.anno =v.anno;
+		this.peso = v.peso;
+		this.co2 = v.co2;
+		this.assi = v.assi;
+		this.classeAmbientale = null;
+		this.altezza = v.altezza;
+		setClasseAmbientale();
+	}
 }

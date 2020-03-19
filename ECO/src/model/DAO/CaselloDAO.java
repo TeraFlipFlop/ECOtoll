@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import model.components.Autostrada;
 import model.components.Casello;
 import model.components.Database;
@@ -21,7 +23,7 @@ public Casello getCasello(String codice) {
 	java.sql.PreparedStatement st = null;
 	String sql =null;
 	
-	sql="select * from casello where codice ='"+codice+"' " ;
+	sql="select * from casello where codice ='"+codice+"' ;" ;
 	
 	try {
 st=con.prepareStatement(sql);
@@ -37,7 +39,7 @@ st=con.prepareStatement(sql);
 			 nome= res.getString("nome");
 }
 		} catch (SQLException e1) {
-		// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "error");
 		e1.printStackTrace();
 	}
 	Casello c = new Casello (km, nome,idAuto);
@@ -56,7 +58,7 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 	java.sql.PreparedStatement st = null;
 	String sql =null;
 	
-	sql="select * from casello where Autostrada='"+a.getId()+"'";
+	sql="select * from casello where Autostrada='"+a.getId()+"';";
 	ArrayList<Casello> alist=new ArrayList<Casello>();
 	
 	
@@ -79,7 +81,8 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 			alist.add(c);
 				};
 			} catch (SQLException e1) {
-			
+				JOptionPane.showMessageDialog(null, "error");
+
 				e1.printStackTrace();
 			}
 	return alist;}

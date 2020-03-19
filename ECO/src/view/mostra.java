@@ -48,9 +48,9 @@ public class mostra  extends JFrame{
 	//
 					
 					
-					li="autostrada\t tipo\t \n";
+					li="autostrada\t tipo\t nome\t\n";
 					for (Autostrada s:alist) {
-						 {li=li+s.getId()+"\t"+s.getTipoAutostrada(s.getTipoAutostrada())+"\n";}
+						 {li=li+s.getId()+"\t"+s.getTipoToString()+"\t"+s.getNome()+"\n";}
 						
 					ta.setText(li);
 					

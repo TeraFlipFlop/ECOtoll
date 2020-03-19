@@ -10,10 +10,21 @@ public class ClasseA extends Veicolo {
 
 	public ClasseA() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
-
+	public ClasseA(Veicolo v) {
+		this.targa = v.targa;
+		this.modello = v.modello;
+		this.marca = v.marca;
+		this.anno =v.anno;
+		this.peso = v.peso;
+		this.co2 = v.co2;
+		this.assi = v.assi;
+		this.classeAmbientale = null;
+		this.altezza = v.altezza;
+		setClasseAmbientale();
+	}
 	
 	
 	}

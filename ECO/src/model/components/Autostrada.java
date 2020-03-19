@@ -1,6 +1,8 @@
 package model.components;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 import model.interfaces.AutostradaInter;
 
 enum  Tipologia {pianura, montagna};
@@ -9,31 +11,55 @@ public class Autostrada implements AutostradaInter {
 	private String id;
 	private double [] tariffe=new double[5];
 	private Tipologia tipoAutostrada;
+	private String nome;
+	private String user;
+
+	public Autostrada(String id,String nome,String tipo, String user) {
+	this.id = id;
+	this.nome =nome;
+	this.tipoAutostrada=setTipoAutostrada(tipo);
+	this.user=user;
+	
+	}
+
 	
 	
-	public Autostrada(ArrayList<Casello> caselli, String id, double[] tariffa, Tipologia tipologia) {
+
+
+		public Autostrada(ArrayList<Casello> caselli, String id, double[] tariffa, Tipologia tipologia) {
 		
 		this.caselli = caselli;
 		this.id = id;
-		this.setTariffe(tariffa);
+		this.tariffe = tariffa;		
 		this.tipoAutostrada = tipologia;
+		
 	}
 
-	public Autostrada(ArrayList<Casello> caselli, String id, double[] tariffa, String tipologia) {
+		public Autostrada(ArrayList<Casello> caselli, String id, double[] tariffa, String tipologia) {
 		
 		this.caselli = caselli;
 		this.id = id;
 		this.setTariffe(tariffa);
-		if(tipologia.equals("montagna"))
-		this.tipoAutostrada = Tipologia.montagna;
-		if(tipologia.equals("pianura"))
-		this.tipoAutostrada = Tipologia.pianura;
-		
-	}
+		this.tipoAutostrada=setTipoAutostrada(tipologia);
+		}	
+	
+	
+		public String getNome() {
+			return nome;
+		}
 
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+		public String getUser() {
+			return user;
+		}
+
+		public void setUser(String user) {
+			this.user = user;
+		}
 	
-	
-	public ArrayList<Casello> getCaselli() {
+		public ArrayList<Casello> getCaselli() {
 		return caselli;
 	}
 
@@ -53,20 +79,18 @@ public class Autostrada implements AutostradaInter {
 	}
 
 
-
 	public Tipologia getTipoAutostrada() {
 		return tipoAutostrada;
 	}
+	
 
-	public String getTipoAutostrada(Tipologia t) {
-		String tipoAutostrada="";
-		if(this.tipoAutostrada.equals(Tipologia.montagna))
+	public String getTipoToString() {
+			String tipoAutostrada="";
+			if(this.tipoAutostrada.equals(Tipologia.montagna))
 			tipoAutostrada = "montagna";
 			if(this.tipoAutostrada.equals(Tipologia.pianura))
-				tipoAutostrada = "pianura";
-			
-		
-		return tipoAutostrada;
+			tipoAutostrada = "pianura";
+			return tipoAutostrada;
 	}
 
 
@@ -74,10 +98,15 @@ public class Autostrada implements AutostradaInter {
 		this.tipoAutostrada = tipoAutostrada;
 	}
 
-	public void setTipoAutostrada(String tipoAutostrada) {
-		Autostrada a =new Autostrada(null,null,null,tipoAutostrada);
-		
-		this.tipoAutostrada = a.tipoAutostrada;
+	public Tipologia setTipoAutostrada(String tipoAutostrada) {
+		if( tipoAutostrada.equalsIgnoreCase("montagna")||tipoAutostrada.equalsIgnoreCase("m")||
+			tipoAutostrada.equalsIgnoreCase("pianura") ||tipoAutostrada.equalsIgnoreCase("p")    ) {
+			
+	if(tipoAutostrada.equalsIgnoreCase("montagna")||tipoAutostrada.equalsIgnoreCase("m")) { return Tipologia.montagna;}
+	if(tipoAutostrada.equalsIgnoreCase("pianura")||tipoAutostrada.equalsIgnoreCase("p")) { return Tipologia.pianura;}}
+	return null;
+
+
 	}
 	
 
@@ -101,6 +130,16 @@ public class Autostrada implements AutostradaInter {
 
 	public void setTariffe(double [] tariffe) {
 		this.tariffe = tariffe;
+	}
+
+
+
+
+
+	@Override
+	public void addCaselli(ArrayList<Casello> a) {
+		for(Casello c:a) {this.addCasello(c);}
+		
 	}
 
 }

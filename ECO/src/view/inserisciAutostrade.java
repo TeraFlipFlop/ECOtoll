@@ -12,8 +12,11 @@ import javax.swing.border.EmptyBorder;
 import com.mysql.jdbc.PreparedStatement;
 
 import Controller.AutostradaCTRL;
+import Controller.CaselloCTRL;
 import Controller.LoginController;
+import Controller.TariffeCTRL;
 import model.DAO.AutostradaDAO;
+import model.components.Autostrada;
 import model.components.Database;
 import view.Login;
 
@@ -36,26 +39,30 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 
 public class inserisciAutostrade extends JFrame {
-	private static final String CREATE_QUERY_AUTOSTRADA = "insert into autostrada values(?,?,?,?)";
-	private static final String DELETE_QUERY = "delete from autostrada where codice = ?";	
+	
+		
 	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	String a;
 	
-				//FINESTRA PRINCIPALE
+
+
+	//FINESTRA PRINCIPALE
 	
 	public inserisciAutostrade(String  user) {
+		
+		
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 453, 346);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-					
 		//BOTTONE REFRESH
 		
 JButton btnRefresh = new JButton("refresh");
 btnRefresh.addActionListener(new ActionListener() {
+	
 	public void actionPerformed(ActionEvent e) {
 		inserisciAutostrade f = new inserisciAutostrade(user);
 		f.setVisible(true);
@@ -64,8 +71,8 @@ btnRefresh.addActionListener(new ActionListener() {
 });
 				//DIMENSIONI BOTTONE REFRESH
 
-btnRefresh.setBounds(198, 6, 117, 29);
-getContentPane().add(btnRefresh);
+//btnRefresh.setBounds(198, 6, 117, 29);
+//getContentPane().add(btnRefresh);
 
 		
 		
@@ -90,34 +97,28 @@ getContentPane().add(btnRefresh);
 		JButton btnInserisci = new JButton("inserisci");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Connection con = new Database().Connect();
 				String cod= textField.getText() ;
 				String tipo = textField_1.getText();
 				String nome = textField_2.getText();
+				if(cod.isEmpty()||tipo.isEmpty()||nome.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "campi vuoti");
+					//btnRefresh.doClick();
+				}else {
+				Autostrada y= new Autostrada(cod,nome,tipo,user);
+				y.setTariffe(new TariffeCTRL().createTariffe().getTariffa(y));
 				
-				java.sql.PreparedStatement st = null;
-				try {
-					st=con.prepareStatement(CREATE_QUERY_AUTOSTRADA);
-					
-					st.setString(1, cod);
-					st.setString(2, nome);
-					st.setString(3, tipo);
-					st.setString(4, user);
-					
-					st.execute();
-					
-					
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				
-					System.out.print("ci sto dentro un casino");
-					btnRefresh.doClick();
-					JOptionPane.showMessageDialog(null, "autostrada inserita");
+				
+				int	J=JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
+				if (J==1) {btnRefresh.doClick();}else{
 					
-			}
+				new AutostradaCTRL().insert(y);
+				
+			
+				btnRefresh.doClick();
+					//JOptionPane.showMessageDialog(null, "autostrada inserita");
+					
+				}}}
 		});
 					//DIMENSIONE BOTTONE INSERISCI
 		
@@ -164,10 +165,11 @@ getContentPane().add(btnRefresh);
 				mostra t=new mostra ();
 				t.setVisible(true);
 				t.setBounds(200, 200, 450, 339);
-				//mostra m=new mostra(0,null);
-				//m.setVisible(true);
+			
 			}
 		});
+		
+	
 					//Dimensioni bottone Mostra Tutto
 		
 		btnMostraTutto.setBounds(276, 227, 117, 29);
@@ -204,9 +206,16 @@ getContentPane().add(btnRefresh);
 		codiceComboBox.setBounds(130, 61, 130, 27);
 		getContentPane().add(codiceComboBox);
 		
-	
 	}
-}
+
+
+
+
+		
+	}
+	
+	
+
 
 
 

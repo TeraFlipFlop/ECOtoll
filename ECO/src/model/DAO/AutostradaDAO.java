@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JOptionPane;
+
 import Controller.AutostradaCTRL;
 import Controller.CaselloCTRL;
 import Controller.TariffeCTRL;
@@ -16,11 +18,13 @@ import model.components.Database;
 
 
 public class AutostradaDAO {
-	
+	private static final String DELETE_QUERY = "delete from autostrada where codice = ?";
+	private static final String CREATE_QUERY_AUTOSTRADA = "insert into autostrada values(?,?,?,?)";
 	public Autostrada getAutostrada(String id) {
 		
 		String cod = "";
 		String tipologia= "";
+		String nome="";
 		java.sql.PreparedStatement st = null;
 		Connection con = new Database().Connect();
 		String sql = "select * from autostrada where Codice ='"+id+"' " ;
@@ -37,18 +41,19 @@ public class AutostradaDAO {
 				
 				 cod=res.getString("codice");
 				 tipologia= res.getString("tipo");
-				
+				 nome=res.getString("nome");
 
 		}
 		
 
 		} catch (SQLException e1) {
-			
+			JOptionPane.showMessageDialog(null, "error");
+
 			e1.printStackTrace();
 		}
-		
-		Autostrada b = new Autostrada (null,cod,null,tipologia);
-		
+		double []g= {0,0,0,0,0};
+		Autostrada b = new Autostrada (null,cod,g,tipologia);
+		b.setNome(nome);
 		 if (tipologia.equals("pianura")) {
 		 b.setTariffe(new TariffeCTRL().createTariffe().getTariffaP());
 		 b.setCaselli(new CaselloCTRL().getCaselli(b));
@@ -96,7 +101,8 @@ public class AutostradaDAO {
 		
 
 		} catch (SQLException e1) {
-		
+			JOptionPane.showMessageDialog(null, "error");
+
 			e1.printStackTrace();
 		}
 		
@@ -115,6 +121,56 @@ public class AutostradaDAO {
 
 	public void modAuto(Autostrada a) {
 		//sql
+		
+	}
+
+	public void delete(Autostrada y) {
+		
+		Connection con = new Database().Connect();
+		String cod= y.getId();
+		java.sql.PreparedStatement st = null;
+		try {
+			st=con.prepareStatement(DELETE_QUERY);
+			
+			st.setString(1, cod);
+			st.execute();
+			
+		} catch (SQLException e1) {
+		
+			e1.printStackTrace();
+		}
+		System.out.print("ho cancellato");
+		JOptionPane.showMessageDialog(null, "ho cancellato");
+	}
+
+	
+
+	public void insert(Autostrada y) {
+		
+		
+		
+		Connection con = new Database().Connect();
+	
+	java.sql.PreparedStatement st = null;
+	try {
+		st=con.prepareStatement(CREATE_QUERY_AUTOSTRADA);
+		
+		st.setString(1, y.getId());
+		st.setString(2, y.getNome());
+		st.setString(3, y.getTipoToString());
+		st.setString(4, y.getUser());
+		
+		st.execute();
+		
+		
+		JOptionPane.showMessageDialog(null, "autostrada inserita");
+	} catch (SQLException e1) {
+		JOptionPane.showMessageDialog(null, "autostrada non inserita");
+
+		e1.printStackTrace();
+	}
+	
+
 		
 	}}
 	

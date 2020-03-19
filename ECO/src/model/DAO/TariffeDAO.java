@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 import model.components.Database;
 import model.components.Tariffe;
 
@@ -34,6 +36,8 @@ ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ mon
 				}
 		t.setTariffaM(m);
 		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "error");
+
 			e.printStackTrace();
 		}
 		
@@ -52,7 +56,7 @@ ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ mon
 			t.setTariffaP(p);
 
 		} catch (SQLException e) {
-			
+			JOptionPane.showMessageDialog(null, "error");
 			e.printStackTrace();
 		}
 		
@@ -76,7 +80,8 @@ ResultSet result=st.executeQuery("select Valore from tariffa where tipo ='"+ mon
 			}
 			t.setOneri(d);
 }} catch (SQLException e) {
-			
+	JOptionPane.showMessageDialog(null, "error");
+
 			e.printStackTrace();
 		}
 				
@@ -101,6 +106,8 @@ st.execute("update tariffa set Valore ="+t.getTariffaP()[i] +"  where Tipo ='"+ 
 st.execute("update oneri set importo ="+t.getOneri()[i] +"  where euro ='"+ (i+1) +"' ;");
 }
 } catch (SQLException e) {
+	JOptionPane.showMessageDialog(null, "error");
+
 	e.printStackTrace();
 }
 			}}

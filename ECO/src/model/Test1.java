@@ -35,10 +35,10 @@ public class Test1 {
 	
 	System.out.println(">Km percorsi: "+p.KmPercorsi());
 	
-	Pedaggio t = new Pedaggio(p,a1);
+	//Pedaggio t = new Pedaggio(p,a1);
 	
 	
-	System.out.println(">tariffa complessiva:  "+t.tariffaFinale(v1));
+	//System.out.println(">tariffa complessiva:  "+t.tariffaFinale(v1));
 	}
 
 }

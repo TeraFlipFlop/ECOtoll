@@ -30,6 +30,14 @@ public double[] getOneri() {
 public void setOneri(double[] oneri) {
 	this.oneri = oneri;
 }
+public double[] getTariffa(Autostrada autostrada) {
+	if(autostrada.getTipoAutostrada().equals(Tipologia.montagna))return this.getTariffaM();
+
+if(autostrada.getTipoAutostrada().equals(Tipologia.pianura))return this.getTariffaP();
+return null;
+
+	
+}
 
 
 
