@@ -5,7 +5,7 @@ public class ClasseA extends Veicolo {
 	public ClasseA(String targa, String modello, String marca, int anno, int peso, double co22, int assi,
 			ClasseAmbienale classeAmbientale2, int altezza) {
 		super(targa, modello, marca, anno, peso, co22, assi, classeAmbientale2, altezza);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public ClasseA() {
@@ -25,7 +25,36 @@ public class ClasseA extends Veicolo {
 		this.altezza = v.altezza;
 		setClasseAmbientale();
 	}
+
+	@Override
+	public classeVeicolo getClasseVeicolo() {
+		
+		return super.getClasseVeicolo();
+	}
+
+	@Override
+	public void setClasseAmbientale() {
+		
+		super.setClasseAmbientale();
+	}
+
+	@Override
+	public int checkClasseV() {
+		int i=super.checkClasseV();
+		if(i!=1) {this.setClasseVeicolo();this.factory();};
+		return 0;
+		
+	}
+
+	@Override
+	public Veicolo factory() {
+		
+		return super.factory();
+	}
+
 	
+
+
 	
 	}
 

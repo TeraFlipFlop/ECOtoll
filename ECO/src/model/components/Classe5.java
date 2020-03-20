@@ -25,4 +25,10 @@ public class Classe5 extends Veicolo {
 		this.altezza = v.altezza;
 		setClasseAmbientale();
 	}
+
+	@Override
+	public Veicolo factory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

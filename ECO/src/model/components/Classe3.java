@@ -25,6 +25,12 @@ public class Classe3 extends Veicolo {
 		setClasseAmbientale();
 	}
 
+	@Override
+	public Veicolo factory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 

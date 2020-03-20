@@ -37,7 +37,7 @@ import javax.swing.GroupLayout;
 
 
 public class cancellaCaselli extends JFrame{
-	private static final String CREATE_QUERY_CASELLI = "insert into casello values(?,?,?,?)";
+
 	private static final String DELETE_QUERY = "delete from casello where codice = ?";
 	
 	private JTextField textField;

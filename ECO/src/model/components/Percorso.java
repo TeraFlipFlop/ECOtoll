@@ -1,7 +1,5 @@
 package model.components;
 
-import javax.swing.JOptionPane;
-
 import model.interfaces.PercorsoInter;
 
 public class Percorso implements PercorsoInter {

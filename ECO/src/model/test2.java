@@ -15,6 +15,7 @@ import model.components.ClasseB;
 import model.components.Tariffe;
 
 import model.components.Veicolo;
+import model.interfaces.Veicolointer;
 import Controller.TariffeCTRL;
 
 public class test2 {
@@ -66,8 +67,13 @@ public class test2 {
 			//System.out.println(z.next())	;
 	//}
 		Veicolo p =new VeicoloCTRL().getv();
-		int typo=p.classeV();
+		Veicolo i=new ClasseA();
+		
+		
+		int typo=p.checkClasseV();
 		System.out.print(typo);
+		if(i.getClass().isInstance(new ClasseA())) {
+		System.out.println(i.factory(p.targa, p.modello, p.marca, p.anno,p.peso, p.getCo2(), p.getAssi(),p.getAltezza()));}
 	
 	}}
 

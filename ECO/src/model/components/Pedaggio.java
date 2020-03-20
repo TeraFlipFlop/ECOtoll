@@ -9,13 +9,13 @@ public class Pedaggio implements PedaggioInter {
 	private Veicolo v;
 	private Tariffe t;
 
-	public Pedaggio(Percorso percorso, Autostrada autostrada, Veicolo v,Tariffe t) {
+	public Pedaggio(Percorso percorso, Autostrada autostrada, Veicolo v, Tariffe t) {
 		super();
-		
+
 		this.percorso = percorso;
 		this.autostrada = autostrada;
 		this.v = v;
-		this.t=t;
+		this.t = t;
 	}
 
 	public Tariffe getT() {
@@ -65,29 +65,28 @@ public class Pedaggio implements PedaggioInter {
 	}
 
 	public double tariffaFinale() {
-		Veicolo g = v;
-		if (g.getClass().equals(new ClasseB().getClass())) {
-			return tariffaFinale((ClasseB) g);
+
+		if (v.getClass().equals(new ClasseB().getClass())) {
+			return tariffaFinale((ClasseB) v);
 		}
-		if (g.getClass().equals(new ClasseA().getClass())) {
-			return tariffaFinale((ClasseA) g);
+		if (v.getClass().equals(new ClasseA().getClass())) {
+			return tariffaFinale((ClasseA) v);
 		}
-		if (g.getClass().equals(new Classe3().getClass())) {
-			return tariffaFinale((Classe3) g);
+		if (v.getClass().equals(new Classe3().getClass())) {
+			return tariffaFinale((Classe3) v);
 		}
-		if (g.getClass().equals(new Classe4().getClass())) {
-			return tariffaFinale((Classe4) g);
+		if (v.getClass().equals(new Classe4().getClass())) {
+			return tariffaFinale((Classe4) v);
 		}
-		if (g.getClass().equals(new Classe5().getClass())) {
-			return tariffaFinale((Classe5) g);
+		if (v.getClass().equals(new Classe5().getClass())) {
+			return tariffaFinale((Classe5) v);
 		}
-		if (g.equals(null))
-			return -1;
-		return 0;
+
+		return -1;
 	}
 
 	public double oneri() {
-		
+
 		if (v.getClasseAmbientale().equals(ClasseAmbienale.Euro1)) {
 			return t.getOneri()[0];
 		}
@@ -107,36 +106,37 @@ public class Pedaggio implements PedaggioInter {
 		if (v.getClasseAmbientale().equals(ClasseAmbienale.Euro6)) {
 			return t.getOneri()[5];
 		}
+		v.setClasseAmbientale();
 
-		return 0;
+		return oneri();
 
 	}
 
 	@Override
 	public double tariffaFinale(ClasseA g) {
 
-		return arrotondamento(this.tarParziale(g) + (this.tarParziale(g) * this.iva / 100)+this.oneri());
+		return arrotondamento(this.tarParziale(g) + (this.tarParziale(g) * this.iva / 100) + this.oneri());
 	}
 
 	@Override
 	public double tariffaFinale(ClasseB a) {
 
-		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100)+this.oneri());
+		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100) + this.oneri());
 	}
 
 	@Override
 	public double tariffaFinale(Classe3 a) {
-		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100)+this.oneri());
+		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100) + this.oneri());
 	}
 
 	@Override
 	public double tariffaFinale(Classe4 a) {
-		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100)+this.oneri());
+		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100) + this.oneri());
 	}
 
 	@Override
 	public double tariffaFinale(Classe5 a) {
-		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100)+this.oneri());
+		return arrotondamento(this.tarParziale(a) + (this.tarParziale(a) * this.iva / 100) + this.oneri());
 	}
 
 	public double tarParziale(ClasseA a) {
