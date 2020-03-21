@@ -22,14 +22,48 @@ public class Classe3 extends Veicolo {
 		this.assi = v.assi;
 		this.classeAmbientale = null;
 		this.altezza = v.altezza;
-		setClasseAmbientale();
+		this.setClasseAmbientale();
+		this.setClasseVeicolo(model.components.classeVeicolo.C);
+	}
+	@Override
+	public classeVeicolo getClasseVeicolo() {
+		
+		return super.getClasseVeicolo();
+	}
+
+	@Override
+	public void setClasseAmbientale() {
+		
+		super.setClasseAmbientale();
+	}
+
+	@Override
+	public int checkClasseV() {
+		int i=super.checkClasseV();
+		
+		return i;
+		
 	}
 
 	@Override
 	public Veicolo factory() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return super.factory();
 	}
+
+	
+	@Override
+	public void setClasseVeicolo() {
+	
+		super.setClasseVeicolo();
+	}
+
+	@Override
+	public ClasseAmbienale getClasseAmbientale() {
+	
+		return super.getClasseAmbientale();
+	}
+
 
 
 

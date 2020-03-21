@@ -162,7 +162,7 @@ btnRefresh.addActionListener(new ActionListener() {
 		btnMostraTutto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				mostra t=new mostra ();
+				mostra t = new mostra();
 				t.setVisible(true);
 				t.setBounds(200, 200, 450, 339);
 			

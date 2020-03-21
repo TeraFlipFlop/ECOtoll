@@ -1,5 +1,5 @@
 package model.DAO;
-
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -87,10 +87,73 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 			}
 	return alist;}
 
-public void update(Casello casello) {
-	// 
+public void insert(Casello casello) {
+	final String CREATE_QUERY_CASELLI = "insert into casello values(?,?,?,?)";
+	Connection con = new Database().Connect();
+	String codice = casello.getNome();
+	String Km = Integer.toString(casello.getKm());
+	String nome = null;
+	String Autostrada = casello.getIdAuto();
+
+	
+	
+	java.sql.PreparedStatement st = null;
+	try {
+		st = con.prepareStatement(CREATE_QUERY_CASELLI);
+
+		st.setString(1, codice);
+		st.setString(2, Km);
+		st.setString(3, Autostrada);
+		st.setString(4, nome);
+
+		st.execute();
+
+	} catch (SQLException e1) {
+		//JOptionPane.showMessageDialog(null, "ERROR");
+		
+		e1.printStackTrace();
+	}
 	
 }
+
+public void delete(Casello c) {
+	final String DELETE_QUERY = "delete from casello where codice = ?";
+	Connection con = new Database().Connect();
+	String codice = c.getNome();
+
+	java.sql.PreparedStatement st = null;
+	
+	try {
+		st=con.prepareStatement(DELETE_QUERY);
+		
+		st.setString(1, codice);
+
+		st.execute();
+		
+	} catch (SQLException e1) {
+		//JOptionPane.showMessageDialog(null, "ERROR");
+		e1.printStackTrace();
+	}
+	
+		System.out.print("del");
+		
+		//JOptionPane.showMessageDialog(null, "eliminato");
+
+
+
+
+	
+}
+
+public void update(Casello casello) {
+	delete(casello);
+	
+	insert(casello);
+	
+	
+}
+
+
 
 
 

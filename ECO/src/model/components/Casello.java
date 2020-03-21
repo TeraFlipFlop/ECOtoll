@@ -29,10 +29,10 @@ public String getNome() {
 public void setNome(String nome) {
 	this.nome = nome;
 }
-public String getId() {
+public String getIdAuto() {
 	return idAuto;
 }
-public void setId(String id) {
+public void setIdAuto(String id) {
 	this.idAuto = id;
 }
 

@@ -23,7 +23,8 @@ public class ClasseA extends Veicolo {
 		this.assi = v.assi;
 		this.classeAmbientale = null;
 		this.altezza = v.altezza;
-		setClasseAmbientale();
+		this.setClasseAmbientale();
+		this.setClasseVeicolo(model.components.classeVeicolo.A);
 	}
 
 	@Override
@@ -41,8 +42,8 @@ public class ClasseA extends Veicolo {
 	@Override
 	public int checkClasseV() {
 		int i=super.checkClasseV();
-		if(i!=1) {this.setClasseVeicolo();this.factory();};
-		return 0;
+		
+		return i;
 		
 	}
 
@@ -53,6 +54,17 @@ public class ClasseA extends Veicolo {
 	}
 
 	
+	@Override
+	public void setClasseVeicolo() {
+	
+		super.setClasseVeicolo();
+	}
+
+	@Override
+	public ClasseAmbienale getClasseAmbientale() {
+	
+		return super.getClasseAmbientale();
+	}
 
 
 	

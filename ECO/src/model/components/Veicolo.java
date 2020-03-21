@@ -176,20 +176,30 @@ public abstract class Veicolo implements Veicolointer {
 		return 0;
 	}
 
+	public Veicolo factory(Veicolo v) {
+		Veicolo a = new ClasseA(v);
+		a = a.factory();
+		a.reclass();
+		return a;
+	}
+
 	@Override
 	public Veicolo factory(String targa, String modello, String marca, int anno, int peso, double co22, int assi,
 			int altezza) {
+		Veicolo a = new ClasseA();
+		a.setAltezza(altezza);
+		a.setAssi(assi);
+		a.setClasseVeicolo();
+		a.setAnno(anno);
+		a.setCo2(co22);
+		a.setMarca(marca);
+		a.setPeso(peso);
+		a.setModello(modello);
+		System.out.println(a.getClass());
+		a = a.factory();
+		System.out.println(a.getClass());
 
-		this.targa = targa;
-		this.modello = modello;
-		this.marca = marca;
-		this.anno = anno;
-		this.peso = peso;
-		this.co2 = co22;
-		this.assi = assi;
-
-		this.altezza = altezza;
-		return this.factory();
+		return a;
 	}
 
 	@Override
@@ -197,6 +207,7 @@ public abstract class Veicolo implements Veicolointer {
 
 		this.setClasseVeicolo();
 		this.setClasseAmbientale();
+
 		if (this.classeVeicolo.equals(model.components.classeVeicolo.A))
 			return new ClasseA(this);
 		if (this.classeVeicolo.equals(model.components.classeVeicolo.B))
@@ -211,4 +222,27 @@ public abstract class Veicolo implements Veicolointer {
 		return null;
 	}
 
-}
+	public void reclass() {
+		Class<? extends Veicolo> t = this.getClass();
+		if (t.equals(new ClasseB().getClass())) {
+			this.setClasseVeicolo(model.components.classeVeicolo.B);
+
+		}
+		if (t.equals(new ClasseA().getClass())) {
+			this.setClasseVeicolo(model.components.classeVeicolo.A);
+
+		}
+		if (t.equals(new Classe3().getClass())) {
+			this.setClasseVeicolo(model.components.classeVeicolo.C);
+		}
+		if (t.equals(new Classe4().getClass())) {
+			this.setClasseVeicolo(model.components.classeVeicolo.D);
+
+		}
+		if (t.equals(new Classe5().getClass())) {
+			this.setClasseVeicolo(model.components.classeVeicolo.E);
+
+		}
+	}
+
+};

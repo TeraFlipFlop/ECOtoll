@@ -119,9 +119,17 @@ public class ModAutostrada extends JFrame {
 				a.setTariffe(new TariffeCTRL().createTariffe().getTariffa(a));
 				a.setCaselli(new CaselloCTRL().getCaselli(a));
 
-				new AutostradaCTRL().modAutostrada(a);
+				int J = JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
+				if (J == 1) {
 
-				btnIndietro.doClick();
+				} else {
+
+					new AutostradaCTRL().modAutostrada(a);
+
+					ModAutostrada q = new ModAutostrada(user);
+					q.setVisible(true);
+					dispose();
+				}
 			}
 
 		});

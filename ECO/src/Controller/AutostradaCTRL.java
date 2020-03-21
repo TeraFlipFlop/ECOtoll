@@ -18,8 +18,8 @@ public class AutostradaCTRL {
 	}
 
 	public void modAutostrada(Autostrada a) {
-		new AutostradaDAO().delete(a);
-		new AutostradaDAO().insert(a);
+	
+		new AutostradaDAO().modAuto(a);
 	}
 
 

@@ -68,12 +68,16 @@ public class test2 {
 	//}
 		Veicolo p =new VeicoloCTRL().getv();
 		Veicolo i=new ClasseA();
+				i=i.factory(p.targa, p.modello, p.marca, p.anno,p.peso, p.getCo2(), p.getAssi(),p.getAltezza());
 		
+		System.out.print(i.marca);
+
+		System.out.print("--    "+ i.getClasseVeicolo()+"            ");
 		
-		int typo=p.checkClasseV();
+		int typo=i.checkClasseV();
 		System.out.print(typo);
-		if(i.getClass().isInstance(new ClasseA())) {
-		System.out.println(i.factory(p.targa, p.modello, p.marca, p.anno,p.peso, p.getCo2(), p.getAssi(),p.getAltezza()));}
+		if(i.getClass().isInstance(new ClasseB())) {
+		System.out.println(i.factory(p.targa, p.modello, p.marca, p.anno,p.peso, p.getCo2(), p.getAssi(),p.getAltezza()).getClasseVeicolo());}
 	
 	}}
 

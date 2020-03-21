@@ -66,7 +66,7 @@ public class VeicoloDAO {
 
 		if (categoria.equals("B"))
 			a = new ClasseB(targa, modello, marca, anno, peso, co2, assi, null, altezza);
-
+			
 		if (categoria.equals("3"))
 			a = new Classe3(targa, modello, marca, anno, peso, co2, assi, null, altezza);
 
@@ -80,7 +80,7 @@ public class VeicoloDAO {
 		System.out.println(a.getClass());
 		a.setClasseAmbientale();
 		a.setClasseVeicolo();
-		a.factory();
+		a=a.factory();
 
 		return a;
 		
@@ -152,6 +152,7 @@ public class VeicoloDAO {
 		
 		a.setClasseAmbientale();
 		a.setClasseVeicolo();
+		a=a.factory();
 		int i=a.checkClasseV();
 		System.out.println(i);
 		return a;
