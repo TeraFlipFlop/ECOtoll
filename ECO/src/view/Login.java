@@ -114,18 +114,16 @@ public class Login extends JFrame {
 				if (!username.equals("") && !password.equals("")) {
 				String tipo = new LoginController().login(username, password);
 				if(tipo.equals("amministratore")) {
-						dispose();
-						FinestraPrincipale f = new FinestraPrincipale(username); 
-							
-						f.setVisible(true);
-						}
+					dispose();
+					FinestraPrincipale f = new FinestraPrincipale(username); 
+					f.setVisible(true);}
 						
 						} else {JOptionPane.showMessageDialog(null, "Uno o più campi vuoti");}}});
 						}
 	
 	
 	
-	public String getuser () {
+		public String getuser () {
 		return username;
 	}
 }

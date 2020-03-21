@@ -229,23 +229,7 @@ public class GestioneTariffe extends JFrame {
 				String montagna5 = m5.getText();
 				
 				
-				
-	/*   double pianuraA = pianura[0]; // ("A", "pianura") ;
-		double pianuraB = pianura[1];
-		double pianura3 = pianura[2];
-		double pianura4 = pianura[3];
-		double pianura5 = pianura[4];
-		double euro1 = oneri[0];
-		double euro2 = oneri[1];
-		double euro3 = oneri[2];
-		double euro4 = oneri[3];
-		double euro5 = oneri[4];
-		double euro6 = oneri[5];
-		double montagnaA = montagna[0];
-		double montagnaB = montagna[1];
-		double montagna3 = montagna[2];
-		double montagna4 = montagna[3];
-		double montagna5 = montagna[4];*/
+
 				
 				
 				

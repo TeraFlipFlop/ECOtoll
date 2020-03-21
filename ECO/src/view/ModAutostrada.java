@@ -13,6 +13,7 @@ import Controller.CaselloCTRL;
 import Controller.LoginController;
 import Controller.TariffeCTRL;
 import model.components.Autostrada;
+import model.components.Casello;
 import model.components.Database;
 
 import javax.swing.JButton;
@@ -32,13 +33,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 
 public class ModAutostrada extends JFrame {
-//	private static final String MOD_QUERY = "UPDATE `pedaggiautostrade`.`autostrada` SET `Codice` = 'A24', `Nome` = '?', `Tipo` = '?' WHERE (`Codice` = '?');\n" + 
-	// "";
-
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
+
 
 	public ModAutostrada(String user) {
 		getContentPane().setLayout(null);
@@ -68,11 +66,6 @@ public class ModAutostrada extends JFrame {
 		textField_3.setColumns(10);
 		getContentPane().add(textField_3);
 
-		textField_4 = new JTextField();
-		textField_4.setBounds(303, 201, 130, 26);
-		textField_4.setColumns(10);
-		getContentPane().add(textField_4);
-
 		JLabel lblNewLabel = new JLabel("Codice");
 		lblNewLabel.setBounds(63, 136, 61, 16);
 		getContentPane().add(lblNewLabel);
@@ -84,10 +77,6 @@ public class ModAutostrada extends JFrame {
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setBounds(344, 136, 61, 16);
 		getContentPane().add(lblTipo);
-
-		JLabel lblAmministratore = new JLabel("Amministratore");
-		lblAmministratore.setBounds(323, 186, 98, 16);
-		getContentPane().add(lblAmministratore);
 
 		// BOTTONE INDIETRO
 
@@ -110,7 +99,6 @@ public class ModAutostrada extends JFrame {
 		JButton btnModifica = new JButton("Applica");
 		btnModifica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// String id,String nome,String tipo, String user
 				String codice = textField_1.getText();
 				String tipo = textField_3.getText();
 				String nome = textField_2.getText();
@@ -125,7 +113,6 @@ public class ModAutostrada extends JFrame {
 				} else {
 
 					new AutostradaCTRL().modAutostrada(a);
-
 					ModAutostrada q = new ModAutostrada(user);
 					q.setVisible(true);
 					dispose();
@@ -142,15 +129,20 @@ public class ModAutostrada extends JFrame {
 
 		ArrayList<String> codlist = new ArrayList<String>();
 		codlist = new AutostradaCTRL().getCodAutostrada();
+		codlist.add(0, "");
 		String[] codicevar = new String[codlist.size()];
-		JComboBox<String> jComboBox = new JComboBox<String>(codlist.toArray(codicevar));
+		JComboBox<String> jComboBox = new JComboBox(codlist.toArray(codicevar));
 		JComboBox<String> codiceComboBox = jComboBox;
 
 		codiceComboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 
+			public void actionPerformed(ActionEvent e) {
+				
 				String codiceSelected = codiceComboBox.getSelectedItem().toString();
-				textField_1.setText(codiceSelected);
+				Autostrada a=new AutostradaCTRL().getAutostrada(codiceSelected);
+				textField_1.setText(a.getId());
+				textField_2.setText(a.getNome());
+				textField_3.setText(a.getTipoToString());
 
 			}
 		});
@@ -160,4 +152,5 @@ public class ModAutostrada extends JFrame {
 		getContentPane().add(codiceComboBox);
 
 	}
+
 }

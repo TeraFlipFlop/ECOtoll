@@ -99,8 +99,8 @@ public class inserisciCaselli extends JFrame {
 		});
 		// DIMENSIONI BOTTONE REFRESH
 
-		btnRefresh.setBounds(198, 6, 117, 29);
-		getContentPane().add(btnRefresh);
+		//btnRefresh.setBounds(198, 6, 117, 29);
+		//getContentPane().add(btnRefresh);
 
 		// SERIE DI LABEL
 		JLabel lblAutostrada = new JLabel("autostrada");
@@ -137,7 +137,7 @@ public class inserisciCaselli extends JFrame {
 					// ModAutostrada q = new ModAutostrada(user);
 					// q.setVisible(true);
 					// dispose();
-					
+
 				} else {
 					new CaselloCTRL().insert(c);
 

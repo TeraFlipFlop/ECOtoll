@@ -37,8 +37,8 @@ public class ModCasello extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private String autostrada;
-	private String casello;
-	private int km;
+	
+	
 	private Casello c;
 
 	public ModCasello(String user) {
@@ -118,10 +118,7 @@ public class ModCasello extends JFrame {
 				System.out.println(km);
 				String nome = textField_2.getText();
 				String autostrada = textField_4.getText();
-			//	c = new Casello(Integer.valueOf(km), codice, autostrada);
-				c.setKm(Integer.valueOf(km));
-				c.setIdAuto(autostrada);
-				c.setId(codice);
+		
 				int J = JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
 				if (J == 1) {
 					// ModCasello q = new ModCasello(user);
@@ -151,8 +148,8 @@ public class ModCasello extends JFrame {
 		codlist = new AutostradaCTRL().getCodAutostrada();
 		codlist.add(0, "");
 		String[] codicevar = new String[codlist.size()];
-		JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
-		JComboBox codiceComboBox = jComboBox;
+		JComboBox<String> jComboBox = new JComboBox(codlist.toArray(codicevar));
+		JComboBox<String> codiceComboBox = jComboBox;
 
 		// DIMENSIONI COMBO BOX
 
@@ -184,7 +181,6 @@ public class ModCasello extends JFrame {
 				
 				c=new CaselloCTRL().getCaselli(codiceSelected);
 				
-				//c = new Casello(Integer.valueOf(km), casello, autostrada);
 				textField_1.setText(c.getId());
 				textField_4.setText(c.getIdAuto());
 				textField_3.setText(Integer.toString(c.getKm()));
