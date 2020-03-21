@@ -228,15 +228,7 @@ public class GestioneTariffe extends JFrame {
 				String montagna4 = m4.getText();
 				String montagna5 = m5.getText();
 				
-				
 
-				
-				
-				
-				
-				
-				
-				
 
 				double[] pianura = { Double.valueOf(pianuraA), Double.valueOf(pianuraB), Double.valueOf(pianura3),
 						Double.valueOf(pianura4), Double.valueOf(pianura5) };
