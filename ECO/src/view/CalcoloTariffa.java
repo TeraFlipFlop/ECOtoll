@@ -210,10 +210,10 @@ public class CalcoloTariffa extends JFrame {// da rifare
 		JButton btnCalcola = new JButton("calcola");
 		btnCalcola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				////////////////////
-				if (entrata.equals("") || uscita.equals("") || textField.getText().equals("")) {
+				
+				if (entrata.equals("") || uscita.equals("") || textField.getText().equals("")|| entrata.equals(uscita)) {
 					JOptionPane.showMessageDialog(null,
-							"Seleziona i caselli di entrata e uscita e acqusire la targa del veicolo");
+			"Seleziona il casello di entrata e il casello di uscita e acqusire la targa del veicolo");
 				} else {
 
 					Casello en = new CaselloCTRL().getCaselli(entrata);
