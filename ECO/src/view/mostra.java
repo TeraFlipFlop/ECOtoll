@@ -89,7 +89,7 @@ public class mostra extends JFrame {
 
 		String li = "codice\tAutostrada\tkm\n";
 		for (Casello s : alist) {
-			li = li + s.getNome() + "\t" + s.getIdAuto() + "\t" + s.getKm() + "\n";
+			li = li + s.getId() + "\t" + s.getIdAuto() + "\t" + s.getKm() + "\n";
 		}
 
 		ta.setText(li);
@@ -144,7 +144,7 @@ public class mostra extends JFrame {
 			ArrayList<Casello> alist = new CaselloCTRL().getCaselli(b);
 
 			for (Casello s : alist) {
-				li = li + s.getNome() + "\t" + s.getIdAuto() + "\t" + s.getKm() + "\n";
+				li = li + s.getId() + "\t" + s.getIdAuto() + "\t" + s.getKm() + "\n";
 			}
 			li = li + "\n";
 

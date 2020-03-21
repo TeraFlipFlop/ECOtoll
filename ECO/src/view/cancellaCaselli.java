@@ -168,7 +168,7 @@ public class cancellaCaselli extends JFrame {
 		ArrayList<Casello> c = new CaselloCTRL().getCaselli(b);
 
 		for (Casello p : c) {
-			combo.addItem(p.getNome());
+			combo.addItem(p.getId());
 		}
 		getContentPane().add(combo);
 	};

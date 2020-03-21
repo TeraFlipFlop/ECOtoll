@@ -14,7 +14,7 @@ import model.components.Database;
 
 public class CaselloDAO {
 public Casello getCasello(String codice) {
-
+	
 	String nome = null;
 	String idAuto = null;
 	int km = 0;
@@ -35,14 +35,15 @@ st=con.prepareStatement(sql);
 	
 		while(res.next()) {
 			 km=res.getInt("km");
-			 idAuto=res.getString("codice");
+			 idAuto=res.getString("autostrada");
 			 nome= res.getString("nome");
+			 codice=res.getString("codice");
 }
 		} catch (SQLException e1) {
 			JOptionPane.showMessageDialog(null, "error");
 		e1.printStackTrace();
 	}
-	Casello c = new Casello (km, nome,idAuto);
+	Casello c = new Casello (km, codice,idAuto,nome);
 	return c; 
 	}
 
@@ -90,9 +91,9 @@ public ArrayList<Casello> getCaselli(Autostrada a) {
 public void insert(Casello casello) {
 	final String CREATE_QUERY_CASELLI = "insert into casello values(?,?,?,?)";
 	Connection con = new Database().Connect();
-	String codice = casello.getNome();
+	String codice = casello.getId();
 	String Km = Integer.toString(casello.getKm());
-	String nome = null;
+	String nome = casello.getNome();
 	String Autostrada = casello.getIdAuto();
 
 	
@@ -119,7 +120,7 @@ public void insert(Casello casello) {
 public void delete(Casello c) {
 	final String DELETE_QUERY = "delete from casello where codice = ?";
 	Connection con = new Database().Connect();
-	String codice = c.getNome();
+	String codice = c.getId();
 
 	java.sql.PreparedStatement st = null;
 	
@@ -147,7 +148,6 @@ public void delete(Casello c) {
 
 public void update(Casello casello) {
 	delete(casello);
-	
 	insert(casello);
 	
 	

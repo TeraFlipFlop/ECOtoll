@@ -115,17 +115,24 @@ public class ModCasello extends JFrame {
 
 				String codice = textField_1.getText();
 				String km = textField_3.getText();
+				System.out.println(km);
 				String nome = textField_2.getText();
 				String autostrada = textField_4.getText();
-				Casello c = new Casello(Integer.valueOf(km), codice, autostrada);
-				
+			//	c = new Casello(Integer.valueOf(km), codice, autostrada);
+				c.setKm(Integer.valueOf(km));
+				c.setIdAuto(autostrada);
+				c.setId(codice);
 				int J = JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
 				if (J == 1) {
 					// ModCasello q = new ModCasello(user);
 					// q.setVisible(true);
 					// dispose();
 					
-				} else {new CaselloCTRL().modCasello(c);
+				} else {
+					c = new Casello(Integer.valueOf(km), codice, autostrada,nome);
+					
+					
+					new CaselloCTRL().modCasello(c);
 					
 				
 					ModCasello q = new ModCasello(user);
@@ -144,23 +151,26 @@ public class ModCasello extends JFrame {
 		codlist = new AutostradaCTRL().getCodAutostrada();
 		codlist.add(0, "");
 		String[] codicevar = new String[codlist.size()];
-		JComboBox<String> jComboBox = new JComboBox<String>(codlist.toArray(codicevar));
-		JComboBox<String> codiceComboBox = jComboBox;
+		JComboBox jComboBox = new JComboBox(codlist.toArray(codicevar));
+		JComboBox codiceComboBox = jComboBox;
 
 		// DIMENSIONI COMBO BOX
 
-		codiceComboBox.setBounds(323, 52, 103, 22);
+		codiceComboBox.setBounds(318, 55, 103, 22);
 		getContentPane().add(codiceComboBox);
 
 		JComboBox<String> comboBox_1 = new JComboBox<String>();
-		comboBox_1.setBounds(323, 85, 103, 22);
+		comboBox_1.setBounds(318, 87, 103, 22);
 		getContentPane().add(comboBox_1);
 		// COMBO BOX
 
 		codiceComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				// String codiceSelected = codiceComboBox.getSelectedItem().toString();
+				
+				String codiceSelected = codiceComboBox.getSelectedItem().toString();
+				
+				autostrada=codiceSelected;
+				//textField_1.setText(codiceSelected);
 				create2(comboBox_1);
 
 			}
@@ -168,14 +178,18 @@ public class ModCasello extends JFrame {
 
 		comboBox_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+			
+				
 				String codiceSelected = (String) comboBox_1.getSelectedItem();
-				c = new CaselloCTRL().getCaselli(codiceSelected);
-
-				System.out.println(c.getNome());
+				
+				c=new CaselloCTRL().getCaselli(codiceSelected);
+				
+				//c = new Casello(Integer.valueOf(km), casello, autostrada);
+				textField_1.setText(c.getId());
 				textField_4.setText(c.getIdAuto());
-				textField_1.setText(c.getNome());
 				textField_3.setText(Integer.toString(c.getKm()));
+				textField_2.setText(c.getNome());
+				
 			}
 		});
 
@@ -189,9 +203,8 @@ public class ModCasello extends JFrame {
 		ArrayList<Casello> c = new CaselloCTRL().getCaselli(b);
 
 		for (Casello p : c) {
-			combo.addItem(p.getNome());
+			combo.addItem(p.getId());
 		}
 		getContentPane().add(combo);
 	};
-
 }
