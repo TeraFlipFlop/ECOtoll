@@ -210,7 +210,7 @@ public class GestioneTariffe extends JFrame {
 		JButton btnCambia = new JButton("Cambia");
 		btnCambia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String pianuraA = pA.getText();
 				String pianuraB = pB.getText();
 				String pianura3 = p3.getText();
@@ -227,8 +227,6 @@ public class GestioneTariffe extends JFrame {
 				String montagna3 = m3.getText();
 				String montagna4 = m4.getText();
 				String montagna5 = m5.getText();
-				
-
 
 				double[] pianura = { Double.valueOf(pianuraA), Double.valueOf(pianuraB), Double.valueOf(pianura3),
 						Double.valueOf(pianura4), Double.valueOf(pianura5) };
@@ -236,7 +234,7 @@ public class GestioneTariffe extends JFrame {
 						Double.valueOf(euro4), Double.valueOf(euro5), Double.valueOf(euro6) };
 				double[] montagna = { Double.valueOf(montagnaA), Double.valueOf(montagnaB), Double.valueOf(montagna3),
 						Double.valueOf(montagna4), Double.valueOf(montagna5) };
-				
+
 				t.setTariffaM(montagna);
 				t.setOneri(oneri);
 				t.setTariffaP(pianura);

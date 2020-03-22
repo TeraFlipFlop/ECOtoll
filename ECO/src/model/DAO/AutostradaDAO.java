@@ -113,7 +113,6 @@ public class AutostradaDAO {
 	public void modAuto(Autostrada a) {
 		delete(a);
 		insert(a);
-		
 
 	}
 
@@ -133,13 +132,12 @@ public class AutostradaDAO {
 			e1.printStackTrace();
 		}
 		ArrayList<Casello> array = new CaselloDAO().getCaselli(y);
-		for(Casello c:array) {
+		for (Casello c : array) {
 			new CaselloDAO().delete(c);
 		}
-		
-		
+
 		System.out.print("ho cancellato");
-		//JOptionPane.showMessageDialog(null, "ho cancellato");
+		// JOptionPane.showMessageDialog(null, "ho cancellato");
 	}
 
 	public void insert(Autostrada y) {
@@ -157,7 +155,7 @@ public class AutostradaDAO {
 
 			st.execute();
 
-			//JOptionPane.showMessageDialog(null, "autostrada inserita");
+			// JOptionPane.showMessageDialog(null, "autostrada inserita");
 		} catch (SQLException e1) {
 			JOptionPane.showMessageDialog(null, "autostrada non inserita");
 

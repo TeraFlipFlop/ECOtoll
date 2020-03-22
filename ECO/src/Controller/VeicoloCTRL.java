@@ -11,16 +11,14 @@ import model.components.ClasseB;
 import model.components.Veicolo;
 
 public class VeicoloCTRL {
-	
 
-public Veicolo getv() {
-	return  new VeicoloDAO().getV();}
+	public Veicolo getv() {
+		return new VeicoloDAO().getV();
+	}
 
-public Veicolo getv(String string) {
-	return new VeicoloDAO().getV(string);
-	
+	public Veicolo getv(String string) {
+		return new VeicoloDAO().getV(string);
 
-}
-
+	}
 
 }

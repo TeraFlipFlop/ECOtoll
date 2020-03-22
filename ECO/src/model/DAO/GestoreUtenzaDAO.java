@@ -13,36 +13,33 @@ import model.components.Database;
 
 public class GestoreUtenzaDAO {
 
-	
-	
 	public String login(String username, String password) {
-			
-		
-			Connection con = new Database().Connect();
-			try {
-				Statement st=con.createStatement();
-				
-ResultSet result=st.executeQuery("select * from amministratore where Username='"+username+"'and Password='"+password+"'");
-				
-				if(result.next()) {
-					System.out.println(username);
-					System.out.println(password);
-					JOptionPane.showMessageDialog(null, "credenziali corrette");
-					return "amministratore";
-					
-			}else {	JOptionPane.showMessageDialog(null, "Login error: credenziali errate");
-			System.out.println("ERRLOG "+username);
-			System.out.println("ERRLOG "+password);}
-				
 
+		Connection con = new Database().Connect();
+		try {
+			Statement st = con.createStatement();
 
-			} catch (SQLException e) {
-				JOptionPane.showMessageDialog(null, "sql error");
-				e.printStackTrace();
+			ResultSet result = st.executeQuery(
+					"select * from amministratore where Username='" + username + "'and Password='" + password + "'");
+
+			if (result.next()) {
+				System.out.println(username);
+				System.out.println(password);
+				JOptionPane.showMessageDialog(null, "credenziali corrette");
+				return "amministratore";
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Login error: credenziali errate");
+				System.out.println("ERRLOG " + username);
+				System.out.println("ERRLOG " + password);
 			}
-			
-			
-			return "";
+
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "sql error");
+			e.printStackTrace();
 		}
+
+		return "";
+	}
 
 }
