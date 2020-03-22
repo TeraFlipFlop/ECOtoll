@@ -139,7 +139,7 @@ public class inserisciCaselli extends JFrame {
 					JOptionPane.showMessageDialog(null, "casello non valido");
 				} else {
 
-					Casello c = new Casello(Integer.valueOf(km), codice, autostrada);
+					Casello c = new Casello(Integer.valueOf(km), codice, autostrada, nome);
 
 					int J = JOptionPane.showConfirmDialog(null, "vuoi?", "", 0);
 					if (J == 1) {
@@ -163,10 +163,17 @@ public class inserisciCaselli extends JFrame {
 		JButton btnMostraTutto = new JButton("Mostra Tutto");
 		btnMostraTutto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Autostrada q = new AutostradaCTRL().getAutostrada(textField.getText());
-				mostra m = new mostra(q);
-				m.setVisible(true);
-				m.setBounds(200, 200, 450, 339);
+				if (textField.getText().equals("")) {
+					mostra m = new mostra();
+					m.setVisible(true);
+					m.setBounds(200, 200, 450, 339);
+				} else {
+					Autostrada q = new AutostradaCTRL().getAutostrada(textField.getText());
+					mostra m = new mostra(q);
+					m.setVisible(true);
+					m.setBounds(200, 200, 450, 339);
+
+				}
 			}
 		});
 		// Dimensioni bottone Mostra Tutto
